@@ -49,7 +49,7 @@ get_header( 'shop' ); ?>
 
 			<?php woocommerce_product_loop_start(); ?>
 
-				<?php woocommerce_product_subcategories(); ?>
+				<?php //woocommerce_product_subcategories(); ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
@@ -60,11 +60,7 @@ get_header( 'shop' ); ?>
 			<?php woocommerce_product_loop_end(); ?>
 
 			<?php
-				/**
-				 * woocommerce_after_shop_loop hook.
-				 *
-				 * @hooked woocommerce_pagination - 10
-				 */
+
 				do_action( 'woocommerce_after_shop_loop' );
 			?>
 

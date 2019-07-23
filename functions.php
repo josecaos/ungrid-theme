@@ -10,9 +10,25 @@ function dependencias() {
   wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js', array('jquery'));
 
 }
+//
+//
+// add_filter( 'loop_shop_per_page', 'loop_per_page', 9999 );
+// function loop_per_page( $cols ) {
+//   $cols = 30;
+//   return $cols;
+// }
+//Esconde cuenta
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+//Esconde orden
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+//
 
+
+
+
+/*
 // Funciones especificas de yayabeach  -  CUSTOMIZATION.old
-
+*/
 add_filter ('woocommerce_add_to_cart_redirect', 'woo_redirect_to_checkout');
 function woo_redirect_to_checkout() {
   //$checkout_url = wc_get_checkout_url();
