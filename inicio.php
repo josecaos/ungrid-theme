@@ -7,11 +7,15 @@ get_header();
 
 ?>
 <section id="mapa_playa" class="ungrid">
+  <div class="header-mar imgLiquid imgLiquidFill">
+    <img src="<?php echo get_stylesheet_directory_uri(); ?> /img/YAYA_mar.png" alt="YayaBeach Club Mahahual">
+  </div>
 
   <?php
   $args = array(
     'post_type'=>'product',
-    'post_per_page'=> -1
+    'posts_per_page'=> 28,
+    'orderby'=> "default"
   );
   $q = new WP_Query($args);
   if ($q->have_posts()):
