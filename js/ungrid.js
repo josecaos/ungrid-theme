@@ -31,11 +31,12 @@ function ungrid(namesArray,posXArray,posYArray,backgroundSelector,backgroundHeig
         console.log(name + ": not found");
 
       } else if (found === true) {//if found
-        x = "translateX("+ posXArray[foundIndex] +"%)"
+        x = "translateX("+ posXArray[foundIndex] +"px)"
         console.log(names[i].innerHTML);
-        products[i].style.transition = "2s"
+        products[i].style.transition = "0.5s"
         products[i].style.opacity = 1
         products[i].style.display = "block"
+        products[i].style.bottom = "20px"
         product = products[i].style.transform = x
         foundIndex = foundIndex+1
 
