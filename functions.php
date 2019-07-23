@@ -6,7 +6,7 @@ function dependencias() {
   wp_enqueue_style( 'child-styles', get_stylesheet_directory_uri() . '/style.css');
   wp_enqueue_style( 'custom-css', get_stylesheet_directory_uri() . '/css/custom.css');
   wp_enqueue_script( 'img-js', get_stylesheet_directory_uri() . '/js/imgLiquid.js');
-  // wp_enqueue_script( 'ungrid-js', get_stylesheet_directory_uri() . '/js/ungrid.js');
+  wp_enqueue_script( 'ungrid-js', get_stylesheet_directory_uri() . '/js/ungrid.js');
   wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js', array('jquery'));
 
 }

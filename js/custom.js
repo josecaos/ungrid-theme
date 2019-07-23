@@ -1,20 +1,17 @@
-import {UnGrip} from '/js/ungrip.js';
+// import {UnGrid} from '/js/ungrid.js';
 
 jQuery(document).ready(() => {
 
-  alert("Debuggg")
-
-  img()
-
-  let x = new UnGrip()
-  x.init()
+  ungrid(["hola","mundo","estas"],[100,200,300],[100,200,300],".products")
   console.log("Scripts OK.")
+
+  // let x = new UnGrip()
+  // img()
+
 }
 )
 
 function img() {
-  console.log("Images OK.")
-
   jQuery('.imgLiquid.imgLiquidFill').imgLiquid()
   jQuery('.imgLiquid.imgLiquidNoFill').imgLiquid({
     fill: false

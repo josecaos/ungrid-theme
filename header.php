@@ -29,9 +29,7 @@
 	<script type="text/javascript">
 		document.documentElement.className = 'js';
 	</script>
-<script type="module" src="<?php get_stylesheet_directory_uri() . '/js/ungrid.js'; ?>">
-
-</script>
+<!-- <script type="module" src="<?php echo get_stylesheet_directory_uri() . '/js/ungrid.js'; ?>"></script> -->
 	<?php wp_head(); ?>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->

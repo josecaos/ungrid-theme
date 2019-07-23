@@ -1,4 +1,4 @@
-let items: {
+export let items: {
   obj1: "AREA A",
   obj2: "AREA C",
   obj3: "AREA B",
