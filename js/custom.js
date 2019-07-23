@@ -2,7 +2,8 @@
 
 jQuery(document).ready(() => {
 
-  ungrid(["hola","mundo","estas"],[100,200,300],[100,200,300],".products")
+  ungrid(["Bed A3","Bed A1","mundo"],[100,200,300],[100,200,300],".products")
+
   console.log("Scripts OK.")
 
   // let x = new UnGrip()

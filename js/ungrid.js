@@ -1,31 +1,50 @@
 const d = document
 
-function ungrid(findNamesInArray,posXArray,posYArray,backgroundSelector,backgroundHeight) {
+function ungrid(namesArray,posXArray,posYArray,backgroundSelector,backgroundHeight) {
 
-  let tarjeta = d.querySelectorAll("ul.products>li.product-type-booking")
-  let nombre = d.querySelectorAll(".woocommerce-LoopProduct-link h3")
   let on = d.body.classList.contains("archive")
+  let products = d.querySelectorAll("ul.products>li")
+  let names = d.querySelectorAll(".woocommerce-LoopProduct-link h3")
+  let name,product,x,y,found,foundIndex = 0
   // estilos base
   d.querySelector(backgroundSelector).style.height = '100vh'
-
+  // ejecuta el mapeo
   if (!on) {
 
     console.log("No se esta ejecutando UnGrid")
 
   } else if (on) {
 
-    console.log("Ungrid Activo")
+    //repite cantidad de objetos que encuentre en el template
+    for (var i = 0; i < names.length; i++) {
+      // sueltalos
+      products[i].style.display = "none"
+      products[i].style.opacity = 0
+      products[i].style.position = "absolute"
+      products[i].style.width = "70px"
+      // encuentralos
+      name = names[i].innerHTML
+      found = namesArray.includes(name)// true or false
+      console.log(x);
+      if (found === false) {
 
-    //
-    for (var i = 0; i < nombre.length; i++) {
-      console.log(tarjeta[i]);
-      tarjeta[i].style.position = "absolute"
-      console.log((i+1) + " -> " + nombre[i].innerHTML)
-    }
-    //
-    return console.log(xArray + " <> " + yArray)
+        console.log(name + ": not found");
 
-  }
+      } else if (found === true) {//if found
+        x = "translateX("+ posXArray[foundIndex] +"%)"
+        console.log(names[i].innerHTML);
+        products[i].style.transition = "2s"
+        products[i].style.opacity = 1
+        products[i].style.display = "block"
+        product = products[i].style.transform = x
+        foundIndex = foundIndex+1
+
+      }
+    }//endfor
+
+    return console.log("Ungrid Activo")
+
+  }//endif
 
 }
 
