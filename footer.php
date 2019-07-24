@@ -10,14 +10,14 @@ if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
 
 <div class="container">
 	<div class="row">
-		<p class="copyright col-12 col-md-8 text-left alert">Copyright <?php echo date('Y'); ?> | Mahahual Q.Roo México</p>
+		<p class="copyright col-12 col-md-8 text-center alert">Copyright <?php echo date('Y'); ?> | Mahahual Q.Roo México</p>
 		<div class="col-12 col-md-4 align-right">
 			<ul class="footer-social row">
-				<li class="col-2 text-right et-social-icon et-social-facebook">
+				<li class="col-2 text-right et-social-icon et-social-facebook mx-auto">
 					<a href="https://www.facebook.com/YayaBeach/" class="icon" target="_blank">
 					</a>
 				</li>
-				<li class="col-2 text-right et-social-icon et-social-instagram">
+				<li class="col-2 text-right et-social-icon et-social-instagram mx-auto">
 					<a href="https://www.instagram.com/yayabeach/" class="icon" target="_blank">
 					</a>
 				</li>

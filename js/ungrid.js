@@ -29,7 +29,7 @@ function UnGrid(namesArray,posXArray,posYArray,backgroundSelector,backgroundHeig
       // sueltalos
       products[i].style.transition = "3s"
       // products[i].style.display = "none"
-      // products[i].style.opacity = 0
+      products[i].style.opacity = 1
       products[i].style.position = "absolute"
       products[i].style.width = "9%"
       name = names[i].innerHTML
