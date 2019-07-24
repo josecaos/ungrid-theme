@@ -55,12 +55,12 @@ div#et-main-area .products li a h3 {
 /*  */
 /*  */
 // Animation
-@-webkit-keyframes mov {/* Safari 4.0 - 8.0 */
+@-webkit-keyframes mov {
   0% {
-    -webkit-transform: translate3d(0px,-2px,0px);
-    -moz-transform: translate3d(0px,-2px,0px);
-    -ms-transform: translate3d(0px,-2px,0px);
-    -o-transform: translate3d(0px,-2px,0px);
+    -webkit-transform: translate3d(0px,-3px,0px);
+    -moz-transform: translate3d(0px,-3px,0px);
+    -ms-transform: translate3d(0px,-3px,0px);
+    -o-transform: translate3d(0px,-3px,0px);
   }
   100% {
     -webkit-transform: translate3d(0px,2px,0px);
@@ -71,7 +71,7 @@ div#et-main-area .products li a h3 {
 }
 @keyframes mov {
   0% {
-    transform: translate3d(0px,-2px,0px);
+    transform: translate3d(0px,-3px,0px);
   }
   100% {
     transform: translate3d(0px,2px,0px);
