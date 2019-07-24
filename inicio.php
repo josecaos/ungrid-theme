@@ -6,9 +6,14 @@ Template Name: Mapa YAYABeach
 get_header();
 
 ?>
-<section id="mapa_playa" class="ungrid">
-  <div class="header-mar imgLiquid imgLiquidFill">
-    <img src="<?php echo get_stylesheet_directory_uri(); ?> /img/YAYA_mar.png" alt="YayaBeach Club Mahahual">
+<section class="container">
+  <br>
+  <h1 class="col-12 text-center">Selecciona alguno de nuestros lugares</h1>
+</section>
+<section id="mapa_playa" class="ungrid container-fluid">
+
+  <div class="fondo-playa col-12 imgLiquid imgLiquidFill">
+    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/YAYA_arena.png" alt="YayaBeach Club Mahahual">
   </div>
 
   <?php
@@ -31,6 +36,9 @@ get_header();
     ?>
   </ul>
 
+  <div class="header-mar col-12 imgLiquid imgLiquidFill">
+    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/YAYA_mar.chico.png" alt="YayaBeach Club Mahahual">
+  </div>
 </section>
 <?php
 endif;

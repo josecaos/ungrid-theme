@@ -7,39 +7,25 @@
 if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
 
 			<footer id="main-footer">
-				<?php get_sidebar( 'footer' ); ?>
 
+<div class="container">
+	<div class="row">
+		<p class="copyright col-12 col-md-8 text-left alert">Copyright <?php echo date('Y'); ?> | Mahahual Q.Roo México</p>
+		<div class="col-12 col-md-4 align-right">
+			<ul class="footer-social row">
+				<li class="col-2 text-right et-social-icon et-social-facebook">
+					<a href="https://www.facebook.com/YayaBeach/" class="icon" target="_blank">
+					</a>
+				</li>
+				<li class="col-2 text-right et-social-icon et-social-instagram">
+					<a href="https://www.instagram.com/yayabeach/" class="icon" target="_blank">
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
 
-		<?php
-			if ( has_nav_menu( 'footer-menu' ) ) : ?>
-
-				<div id="et-footer-nav">
-					<div class="container">
-						<?php
-							wp_nav_menu( array(
-								'theme_location' => 'footer-menu',
-								'depth'          => '1',
-								'menu_class'     => 'bottom-nav',
-								'container'      => '',
-								'fallback_cb'    => '',
-							) );
-						?>
-					</div>
-				</div> <!-- #et-footer-nav -->
-
-			<?php endif; ?>
-
-				<div id="footer-bottom">
-					<div class="container clearfix">
-				<?php
-					if ( false !== et_get_option( 'show_footer_social_icons', true ) ) {
-						get_template_part( 'includes/social_icons', 'footer' );
-					}
-
-					echo et_get_footer_credits();
-				?>
-					</div>	<!-- .container -->
-				</div>
 			</footer> <!-- #main-footer -->
 		</div> <!-- #et-main-area -->
 
@@ -85,9 +71,9 @@ jQuery('document').ready(function(){
       });
 
     });
-});    
+});
 
-</script>	
-	
+</script>
+
 </body>
 </html>
