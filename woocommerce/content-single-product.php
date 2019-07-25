@@ -63,9 +63,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			 * @hooked woocommerce_template_single_sharing - 50
 			 */
 			do_action( 'woocommerce_single_product_summary' );
-			
-		?>
 
+		?>
 	</div><!-- .summary -->
 
 	<?php

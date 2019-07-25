@@ -1,14 +1,12 @@
 /* Template Inicio */
 @import "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css";
 ul.products li {
-  /* display: none; */
   opacity: 0;
+  /* bottom: 45%; */
 }
 #main-footer {
   background-color: #222;
-  /* position: fixed; */
   width: 100%;
-  /* bottom: 0; */
   min-height: 45px;
 }
 div#et-main-area .products li a h3 {
@@ -19,9 +17,10 @@ div#et-main-area .products li a h3 {
 }
 #mapa_playa {
   position: relative;
+  overflow-y: hidden;
 }
 .header-mar {
-  height: 115px;
+  height: 120px;
   width: 100%;
   position: absolute;
   bottom: -40px;
@@ -29,7 +28,7 @@ div#et-main-area .products li a h3 {
   z-index: -1;
   /*  */
   animation-name: mov;
-  animation-duration: 3s;
+  animation-duration: 3.5s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
@@ -71,23 +70,23 @@ div#et-main-area .products li a h3 {
 // Animation
 @-webkit-keyframes mov {
   0% {
-    -webkit-transform: translate3d(0px,-3px,0px);
-    -moz-transform: translate3d(0px,-3px,0px);
-    -ms-transform: translate3d(0px,-3px,0px);
-    -o-transform: translate3d(0px,-3px,0px);
+    -webkit-transform: translate3d(-0px,-10px,0px);
+    -moz-transform: translate3d(-0px,-10px,0px);
+    -ms-transform: translate3d(-0px,-10px,0px);
+    -o-transform: translate3d(-0px,-10px,0px);
   }
   100% {
-    -webkit-transform: translate3d(0px,2px,0px);
-    -moz-transform: translate3d(0px,2px,0px);
-    -ms-transform: translate3d(0px,2px,0px);
-    -o-transform: translate3d(0px,2px,0px);
+    -webkit-transform: translate3d(0px,25px,0px);
+    -moz-transform: translate3d(0px,25px,0px);
+    -ms-transform: translate3d(0px,25px,0px);
+    -o-transform: translate3d(0px,25px,0px);
   }
 }
 @keyframes mov {
   0% {
-    transform: translate3d(0px,-3px,0px);
+    transform: translate3d(-0px,-10px,0px);
   }
   100% {
-    transform: translate3d(0px,2px,0px);
+    transform: translate3d(0px,25px,0px);
   }
 }

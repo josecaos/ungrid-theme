@@ -2,7 +2,7 @@ export let items: {
   obj1: "AREA A",
   obj2: "AREA C",
   obj3: "AREA B",
-  obj4: "Bed VIP1 + Sea Front Table",
+  obj4: "Bed VIP1",
   obj5: "Bed VIP2",
   obj6: "Bed VIP3",
   obj7: "Bed VIP4",

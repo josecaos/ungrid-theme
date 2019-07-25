@@ -16,7 +16,7 @@ function UnGrid(namesArray,posXArray,posYArray,backgroundSelector,backgroundHeig
   let products = d.querySelectorAll("ul.products li")
   let names = d.querySelectorAll("ul.products li a h3")
   let name,product,x,y,found,foundIndex
-  // estilos base
+  // estilos contenedor
   d.querySelector(backgroundSelector).style.minHeight = '120vh'
   // ejecuta el mapeo
   if (!on) {
@@ -28,8 +28,6 @@ function UnGrid(namesArray,posXArray,posYArray,backgroundSelector,backgroundHeig
     for (var i = 0; i < names.length; i++) {
       // sueltalos
       products[i].style.transition = "3s"
-      // products[i].style.display = "none"
-      products[i].style.opacity = 1
       products[i].style.position = "absolute"
       products[i].style.width = "9%"
       name = names[i].innerHTML
