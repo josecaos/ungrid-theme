@@ -1,23 +1,25 @@
-const d = document
-let templateOn, template = ["archive","home","page"]
 
-function UnGrid(namesArray,posXArray,posYArray,backgroundSelector,backgroundHeight) {
+function UnGrid(objectSelector,titleSelector,namesArray,posXArray,posYArray,backgroundSelector,backgroundHeight='120vh') {
 
+  this.titleSelector = titleSelector;
+  this.objectSelector = objectSelector;
   this.namesArray = namesArray;
   this.posXArray = posXArray;
   this.posYArray = posYArray;
   this.backgroundSelector = backgroundSelector;
   this.backgroundHeight = backgroundHeight;
 
+  const d = document
+  let templateOn, template = ["archive","home","page"]
   // controla el template activo
   templateOn = template[1]
   //
   let on = d.body.classList.contains(templateOn)
-  let products = d.querySelectorAll("ul.products li")
-  let names = d.querySelectorAll("ul.products li a h3")
+  let products = d.querySelectorAll(objectSelector)
+  let names = d.querySelectorAll(titleSelector)
   let name,product,x,y,found,foundIndex
   // estilos contenedor
-  d.querySelector(backgroundSelector).style.minHeight = '120vh'
+  d.querySelector(backgroundSelector).style.minHeight = backgroundHeight
   // ejecuta el mapeo
   if (!on) {
 
@@ -37,13 +39,13 @@ function UnGrid(namesArray,posXArray,posYArray,backgroundSelector,backgroundHeig
       // itera sobre el grid
       if (found === false) {
 
-        console.log(name + ": not found!");//debug
+        console.log(name + ": not Mapped!");//debug
 
       } else if (found === true) {
 
         x = "translateX("+ posXArray[foundIndex]+")"
         y = posYArray[foundIndex]
-        console.log("Found: " + names[i].innerHTML + "| Found Index: " + foundIndex);//debug
+        console.log(names[i].innerHTML + ": Mapped");//debug
         products[i].style.opacity = 1
         products[i].style.display = "block"
         products[i].style.bottom = y
@@ -57,19 +59,3 @@ function UnGrid(namesArray,posXArray,posYArray,backgroundSelector,backgroundHeig
   }//endif
 
 }
-
-// Class Version
-// export class UnGrid {
-//
-//   constructor( x, y ) {
-//           this.x = x
-//           this.y = y
-//       }
-//
-//   init ( () => {
-//
-//     console.log("UnZip Ok.");
-//
-//   }
-// )
-// }

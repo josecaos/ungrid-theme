@@ -1,4 +1,3 @@
-// import {UnGrid} from '/js/ungrid.js';
 const row1 = [
   ["Bed VIP2","Bed A1","Bed A2","Bed A3","Bed A4","Bed A5","Bed A6","Bed A7","Bed VIP1"],
   ['10%','150%','260%','370%','480%','590%','700%','810%','940%'],
@@ -17,11 +16,11 @@ const row3 = [
 
 
 jQuery(document).ready(() => {
-  img()
-  let uno = new UnGrid(row1[0],row1[1],row1[2],"#mapa_playa")
-  let dos = new UnGrid(row2[0],row2[1],row2[2],"#mapa_playa")
-  let tres = new UnGrid(row3[0],row3[1],row3[2],"#mapa_playa")
 
+  img()
+  let top = new UnGrid("ul.products li","ul.products li a h3",row3[0],row3[1],row3[2],"#mapa_playa","120vh")
+  let middle = new UnGrid("ul.products li","ul.products li a h3",row2[0],row2[1],row2[2],"#mapa_playa","120vh")
+  let bottom = new UnGrid("ul.products li","ul.products li a h3",row1[0],row1[1],row1[2],"#mapa_playa","120vh")
 
   console.log("Scripts OK.")
 

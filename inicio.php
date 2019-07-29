@@ -8,7 +8,9 @@ get_header();
 ?>
 <section class="container">
   <br>
-  <h1 class="col-12 text-center">Selecciona alguno de nuestros lugares</h1>
+  <h3 class="col-12 text-center">Welcome to</h3>
+  <h2 class="col-12 text-center">Yaya Beach Club</h2>
+  <p class="subtitle col-12 text-center">Below you can see a map of our facilities, choose your spot, combos and get ready to have a good time with us.</p>
 </section>
 <section id="mapa_playa" class="ungrid container-fluid">
 
