@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-get_header( 'shop' ); ?>
+get_header( ); ?>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">

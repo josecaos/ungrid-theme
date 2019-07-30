@@ -10,6 +10,7 @@ function dependencias() {
   wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js', array('jquery'));
 
 }
+
 //
 //
 // add_filter( 'loop_shop_per_page', 'loop_per_page', 9999 );

@@ -14,6 +14,8 @@ div#et-main-area .products li a h3 {
   font-weight: 100;
   font-size: 1em;
   padding-top: 6px;
+  padding-bottom: 2px;
+  margin-bottom: 0px;
 }
 #mapa_playa {
   position: relative;
@@ -65,9 +67,17 @@ div#et-main-area .products li a h3 {
   color: #2EA3F2;
   text-decoration: none;
 }
+.no-padding {
+  padding: 0;
+}
 /*  */
-/*  */
-// Animation
+@media screen and (max-width:520px) {
+  .price {
+    display: none;
+  }
+}
+/* Animation */
+
 @-webkit-keyframes mov {
   0% {
     -webkit-transform: translate3d(-0px,-10px,0px);

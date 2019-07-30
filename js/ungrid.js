@@ -31,7 +31,7 @@ function UnGrid(objectSelector,titleSelector,namesArray,posXArray,posYArray,back
       // sueltalos
       products[i].style.transition = "3s"
       products[i].style.position = "absolute"
-      products[i].style.width = "9%"
+      products[i].style.width = "9%" // mapped element width
       name = names[i].innerHTML
       //
       found = namesArray.includes(name)// true or false
