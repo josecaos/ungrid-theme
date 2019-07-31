@@ -10,7 +10,7 @@ function UnGrid(objectSelector,titleSelector,namesArray,posXArray,posYArray,back
   this.backgroundHeight = backgroundHeight;
 
   const d = document
-  let templateOn, template = ["archive","home","page"]
+  let templateOn, template = ["archive","home","page","shop"]
   // controla el template activo
   templateOn = template[1]
   //

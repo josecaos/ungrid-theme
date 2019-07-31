@@ -47,7 +47,7 @@ div#et-main-area .products li a h3 {
   margin-bottom: 0;
 }
 #footer-bottom {
-    padding: 4px 0 0;
+  padding: 4px 0 0;
 }
 .footer-social {
   margin: 0;
@@ -71,11 +71,14 @@ div#et-main-area .products li a h3 {
   padding: 0;
 }
 /* product */
+.woocommerce-loop-product__title {
+  text-align: center;
+}
 .woocommerce div.product div.images img.attachment-full {
-    width: 200px;
+  width: 200px;
 }
 .woocommerce div.product div.images img.attachment-shop_thumbnail {
-    width: 100px;
+  width: 100px;
 }
 /* responsive */
 @media screen and (max-width:520px) {
@@ -83,27 +86,46 @@ div#et-main-area .products li a h3 {
     display: none;
   }
 }
-/* Animation */
+@media screen and (max-width:479px) {
+  .price {
+    display: none !important;
+  }
+}
+@media screen and (max-width:980px) {
+  .woocommerce-page ul.products li.product:nth-child(n) {
+    width: 9% !important;
+  }
+  @media screen and (max-width:767px) {
+    .woocommerce-page ul.products li.product:nth-child(n) {
+      width: 9% !important;
+    }
+  }
+  @media screen and (max-width:479px) {
+    .woocommerce-page ul.products li.product:nth-child(n) {
+      width: 9% !important;
+    }
+  }
+  /* Animation */
 
-@-webkit-keyframes mov {
-  0% {
-    -webkit-transform: translate3d(-0px,-7px,0px);
-    -moz-transform: translate3d(-0px,-7px,0px);
-    -ms-transform: translate3d(-0px,-7px,0px);
-    -o-transform: translate3d(-0px,-7px,0px);
+  @-webkit-keyframes mov {
+    0% {
+      -webkit-transform: translate3d(-0px,-7px,0px);
+      -moz-transform: translate3d(-0px,-7px,0px);
+      -ms-transform: translate3d(-0px,-7px,0px);
+      -o-transform: translate3d(-0px,-7px,0px);
+    }
+    100% {
+      -webkit-transform: translate3d(0px,25px,0px);
+      -moz-transform: translate3d(0px,25px,0px);
+      -ms-transform: translate3d(0px,25px,0px);
+      -o-transform: translate3d(0px,25px,0px);
+    }
   }
-  100% {
-    -webkit-transform: translate3d(0px,25px,0px);
-    -moz-transform: translate3d(0px,25px,0px);
-    -ms-transform: translate3d(0px,25px,0px);
-    -o-transform: translate3d(0px,25px,0px);
+  @keyframes mov {
+    0% {
+      transform: translate3d(-0px,-7px,0px);
+    }
+    100% {
+      transform: translate3d(0px,25px,0px);
+    }
   }
-}
-@keyframes mov {
-  0% {
-    transform: translate3d(-0px,-7px,0px);
-  }
-  100% {
-    transform: translate3d(0px,25px,0px);
-  }
-}
