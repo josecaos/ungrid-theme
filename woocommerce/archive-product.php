@@ -23,8 +23,8 @@ get_header('shop');
 ?>
 <section class="container">
   <br>
-  <h3 class="col-12 text-center">Welcome to Yaya Beach Club</h3>
-  <p class="subtitle col-12 text-center">Below you can see a map of our facilities, choose your spot, combos and get ready to have a good time with us.</p>
+  <h3 class="col-12 text-center">Welcome to Yaya Beach</h3>
+  <p class="subtitle col-12 text-center">Below you can see a map of our club facilities, choose your spot, combos and get ready to have a good time with us.</p>
 </section>
 <section id="mapa_playa" class="ungrid container-fluid">
 

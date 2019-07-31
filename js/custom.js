@@ -13,22 +13,29 @@ const row3 = [
   ['20%','230%','820%','190%','300%','400%','500%','600%',"700%",'940%'],
   [ "59%", "73%", "71%", "51%", "53%", "55%", "56%", "58%", "60%", "61%" ]
 ]
-const mappedElement = "ul.products li"
-const searchForTag = "ul.products li a h2"
+const mappedElement = "#mapa_playa ul.products li"
+const searchForTag = "#mapa_playa ul.products li a h2"
 const parentContainer = "#mapa_playa"
 const parentHeight = '140vh'
 
 jQuery(document).ready(() => {
 
-// dbug
+  // dbug
   let newArr = normalizeArray(row3[2],"rest",2)
   console.log(newArr);
-//
+  //
   img()
 
-  let top = new UnGrid(mappedElement,searchForTag,row3[0],row3[1],row3[2],parentContainer,parentHeight)
-  let middle = new UnGrid(mappedElement,searchForTag,row2[0],row2[1],row2[2],parentContainer,parentHeight)
-  let bottom = new UnGrid(mappedElement,searchForTag,row1[0],row1[1],row1[2],parentContainer,parentHeight)
+  // only map on Home Archive or Custom term
+  if (document.body.classList.contains('home') ||
+      document.body.classList.contains('archive') ||
+      document.body.classList.contains('term-yaya-spots')) {
+
+    let top = new UnGrid(mappedElement,searchForTag,row3[0],row3[1],row3[2],parentContainer,parentHeight)
+    let middle = new UnGrid(mappedElement,searchForTag,row2[0],row2[1],row2[2],parentContainer,parentHeight)
+    let bottom = new UnGrid(mappedElement,searchForTag,row1[0],row1[1],row1[2],parentContainer,parentHeight)
+
+  }
   //
   // limpia texto antes del precio
   let prods = document.querySelectorAll(".price")
