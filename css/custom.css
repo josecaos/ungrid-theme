@@ -1,6 +1,14 @@
 /* Template Inicio */
 @import "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css";
 /*  */
+:root {
+  --color-yaya: #2EA3F2;
+  --color-hover: #1D02E1;
+  --color-dark: #422918;
+}
+h1,h2,h3,h4,h5,h6 {
+  color: var(--color-dark)
+}
 #mapa_playa ul.products li {
   opacity: 0;
 }
@@ -68,7 +76,7 @@ div#et-main-area .products li a h2 {
   font-weight: 100;
 }
 .woocommerce-LoopProduct-link:hover {
-  color: #2EA3F2;
+  color: var(--color-yaya);
   text-decoration: none;
 }
 .no-padding {
@@ -97,8 +105,14 @@ div#et-main-area .products li a h2 {
   color: gray;
   margin-right: 16px;
 }
+a {
+  color: var(--color-yaya);
+}
+a:hover {
+  color: var(--color-hover);
+}
 label {
-  color: brown;
+  color: var(--color-dark);
 }
 .form-field {
   color: gray;
@@ -108,13 +122,49 @@ label {
   display: none !important;
 }
 .et_header_style_split #main-header .mobile_nav {
-    display: block;
-    padding: 8px 16px;
-    height: 35px;
+  display: block;
+  padding: 8px 16px;
+  height: 35px;
 }
 #et-top-navigation .et-cart-info {
-    margin-top: 0px;
+  margin-top: 0px;
 }
+/* checkout */
+#main-content .container {
+  padding-top: 32px;
+}
+.woocommerce-info {
+  margin-bottom: 16px;
+}
+.woocommerce-input-wrapper {
+  width: 100%;
+}
+.woocommerce button.button.alt.disabled {
+  background-color: var(--color-yaya);
+}
+.woocommerce button.button.alt.disabled:hover {
+  background-color: var(--color-yaya);
+}
+.wc-bookings-date-picker .ui-datepicker td.bookable a {
+  background-color: var(--color-yaya) !important;
+}
+.wc-bookings-date-picker .ui-datepicker-header {
+  padding: 0;
+  border-bottom: none;
+  overflow: hidden;
+  text-transform: uppercase;
+  border-radius: 4px 4px 0 0;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  background-color: var(--color-dark);
+  background-image: none;
+  background-image: none;
+}
+.ui-datepicker-prev.ui-corner-all,
+.ui-datepicker-next.ui-corner-all {
+  background-color: transparent !important;
+}
+/*  */
 /* responsive */
 @media only screen and (max-width:980px) {
   section.related.products {
@@ -124,49 +174,49 @@ label {
     width: 9% !important;
   }
   #et-top-navigation .et-cart-info {
-      margin-top: 9px;
+    margin-top: 9px;
   }
 }
-  @media only screen and (max-width:767px) {
-    .woocommerce-page ul.products li.product:nth-child(n) {
-      width: 9% !important;
-    }
-    .copyright {
-      text-align: center;
-    }
-    .et-social-icon {
-      text-align: center;
-    }
+@media only screen and (max-width:767px) {
+  .woocommerce-page ul.products li.product:nth-child(n) {
+    width: 9% !important;
   }
-  @media only screen and (max-width:479px) {
-    .woocommerce-page ul.products li.product:nth-child(n) {
-      width: 9% !important;
-    }
-    .price {
-      display: none !important;
-    }
+  .copyright {
+    text-align: center;
   }
-  /* Animation */
+  .et-social-icon {
+    text-align: center;
+  }
+}
+@media only screen and (max-width:479px) {
+  .woocommerce-page ul.products li.product:nth-child(n) {
+    width: 9% !important;
+  }
+  .price {
+    display: none !important;
+  }
+}
+/* Animation */
 
-  @-webkit-keyframes mov {
-    0% {
-      -webkit-transform: translate3d(-0px,-7px,0px);
-      -moz-transform: translate3d(-0px,-7px,0px);
-      -ms-transform: translate3d(-0px,-7px,0px);
-      -o-transform: translate3d(-0px,-7px,0px);
-    }
-    100% {
-      -webkit-transform: translate3d(0px,25px,0px);
-      -moz-transform: translate3d(0px,25px,0px);
-      -ms-transform: translate3d(0px,25px,0px);
-      -o-transform: translate3d(0px,25px,0px);
-    }
+@-webkit-keyframes mov {
+  0% {
+    -webkit-transform: translate3d(-0px,-7px,0px);
+    -moz-transform: translate3d(-0px,-7px,0px);
+    -ms-transform: translate3d(-0px,-7px,0px);
+    -o-transform: translate3d(-0px,-7px,0px);
   }
-  @keyframes mov {
-    0% {
-      transform: translate3d(-0px,-7px,0px);
-    }
-    100% {
-      transform: translate3d(0px,25px,0px);
-    }
+  100% {
+    -webkit-transform: translate3d(0px,25px,0px);
+    -moz-transform: translate3d(0px,25px,0px);
+    -ms-transform: translate3d(0px,25px,0px);
+    -o-transform: translate3d(0px,25px,0px);
   }
+}
+@keyframes mov {
+  0% {
+    transform: translate3d(-0px,-7px,0px);
+  }
+  100% {
+    transform: translate3d(0px,25px,0px);
+  }
+}
