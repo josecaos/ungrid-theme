@@ -7,15 +7,15 @@ ul.products li {
 #main-footer {
   background-color: #222;
   width: 100%;
-  min-height: 45px;
+  min-height: 50px;
 }
-div#et-main-area .products li a h3 {
+div#et-main-area .products li a h2 {
   text-align: center;
   font-weight: 100;
   font-size: 1em;
   padding-top: 6px;
   padding-bottom: 2px;
-  margin-bottom: 0px;
+  /* margin-bottom: 0px; */
 }
 #mapa_playa {
   position: relative;
@@ -74,35 +74,28 @@ div#et-main-area .products li a h3 {
 .woocommerce-loop-product__title {
   text-align: center;
 }
-.woocommerce div.product div.images img.attachment-full {
+/* .woocommerce div.product div.images img.attachment-full {
   width: 200px;
 }
 .woocommerce div.product div.images img.attachment-shop_thumbnail {
   width: 100px;
-}
+} */
 /* responsive */
-@media screen and (max-width:520px) {
-  .price {
-    display: none;
-  }
-}
-@media screen and (max-width:479px) {
-  .price {
-    display: none !important;
-  }
-}
-@media screen and (max-width:980px) {
+@media only screen and (max-width:980px) {
   .woocommerce-page ul.products li.product:nth-child(n) {
     width: 9% !important;
   }
-  @media screen and (max-width:767px) {
+  @media only screen and (max-width:767px) {
     .woocommerce-page ul.products li.product:nth-child(n) {
       width: 9% !important;
     }
   }
-  @media screen and (max-width:479px) {
+  @media only screen and (max-width:479px) {
     .woocommerce-page ul.products li.product:nth-child(n) {
       width: 9% !important;
+    }
+    .price {
+      display: none !important;
     }
   }
   /* Animation */
@@ -111,14 +104,14 @@ div#et-main-area .products li a h3 {
     0% {
       -webkit-transform: translate3d(-0px,-7px,0px);
       -moz-transform: translate3d(-0px,-7px,0px);
-      -ms-transform: translate3d(-0px,-7px,0px);
-      -o-transform: translate3d(-0px,-7px,0px);
+      /* -ms-transform: translate3d(-0px,-7px,0px); */
+      /* -o-transform: translate3d(-0px,-7px,0px); */
     }
     100% {
       -webkit-transform: translate3d(0px,25px,0px);
       -moz-transform: translate3d(0px,25px,0px);
-      -ms-transform: translate3d(0px,25px,0px);
-      -o-transform: translate3d(0px,25px,0px);
+      /* -ms-transform: translate3d(0px,25px,0px); */
+      /* -o-transform: translate3d(0px,25px,0px); */
     }
   }
   @keyframes mov {

@@ -12,12 +12,9 @@ function dependencias() {
 }
 
 //
-//
-// add_filter( 'loop_shop_per_page', 'loop_per_page', 9999 );
-// function loop_per_page( $cols ) {
-//   $cols = 30;
-//   return $cols;
-// }
+add_theme_support( 'wc-product-gallery-zoom' );
+// add_theme_support( 'wc-product-gallery-lightbox' );
+add_theme_support( 'wc-product-gallery-slider' );
 //Esconde cuenta
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 //Esconde orden
