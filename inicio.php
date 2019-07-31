@@ -1,9 +1,9 @@
 <?php
 /*
-Template Name: Mapa YAYABeach
+Template Name: Yaya's Map
 */
 
-get_header();
+get_header('shop');
 
 ?>
 <section class="container">
@@ -45,4 +45,4 @@ get_header();
 <?php
 endif;
 //
-get_footer();
+get_footer('shop');

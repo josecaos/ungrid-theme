@@ -11,7 +11,6 @@
  * the readme will list any important changes.
  *
  * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @author 		WooThemes
  * @package 	WooCommerce/Templates
  * @version     1.6.4
  */
@@ -22,12 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $product;
 ?>
-<?php ///var_dump($product); ?>
 
-<?php if ( $price_html = $product->get_price_html("") ) : ?>
-	<div class="no-padding col-12 text-center">
-		<span class="price">
-			<?php echo $price_html; ?>
-		</span>
-	</div>
+<?php if ( $price_html = $product->get_price_html() ) : ?>
+	<span class="price"><?php echo $price_html; ?></span>
 <?php endif; ?>

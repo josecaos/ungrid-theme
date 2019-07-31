@@ -14,21 +14,24 @@ const row3 = [
   ["63%","77%","75%","55%","57%","59%","60%","62%","64%","65%"]
 ]
 const mappedElement = "ul.products li"
-const searchForTag = "ul.products li a h3"
+const searchForTag = "ul.products li a h2"
 const parentContainer = "#mapa_playa"
-const parentHeight = '140vh'
+const parentHeight = '150vh'
 
 jQuery(document).ready(() => {
 
+  let newArr = normalizeArray(row1[1],"sum",10)
+
   img()
+
   let top = new UnGrid(mappedElement,searchForTag,row3[0],row3[1],row3[2],parentContainer,parentHeight)
   let middle = new UnGrid(mappedElement,searchForTag,row2[0],row2[1],row2[2],parentContainer,parentHeight)
-  let bottom = new UnGrid(mappedElement,searchForTag,row1[0],row1[1],row1[2],parentContainer,parentHeight)
+  let bottom = new UnGrid(mappedElement,searchForTag,row1[0],newArr,row1[2],parentContainer,parentHeight)
   //
   // limpia texto antes del precio
   let prods = document.querySelectorAll(".price")
   for (var i = 0; i < prods.length; i++) {
-    prods[i].firstChild.nodeValue = ""
+    // prods[i].firstChild.nodeValue = ""
   }
 
   console.log("Scripts OK.")
@@ -42,4 +45,55 @@ function img() {
     fill: false
   })
 
+}
+
+function normalizeArray(array,oper,value,cleanLastChar=true) {
+
+  let newArray = []
+  let simbols = [ '+', '-', '*', '/']
+  let simbol
+
+  switch (oper) {
+    case 'sum':
+      simbol = simbols[0]
+      break;
+    case 'rest':
+      simbol = simbols[1]
+      break;
+    case 'times':
+      simbol = simbols[2]
+      break;
+    case 'division':
+      simbol = simbols[3]
+      break;
+    default:
+    simbol = simbols[0]
+
+  }
+
+  for (var i = 0; i < array.length; i++) {
+
+    let x,y,z,clean
+
+    x = array[i].toString()
+    y = value.toString()
+
+    if (cleanLastChar === true) {
+
+      xclean = x.slice(0,x.length-1)
+      console.log(xclean)//resultado uno por uno
+      z = eval(xclean + simbols[2] + y)
+
+    } else if (cleanLastChar === false) {
+
+      z = eval(x + simbols[2] + y)
+    }
+
+    newArray.push(z)
+
+    console.log(newArray)//nuevo array
+
+  }//endfor
+
+  return newArray
 }
