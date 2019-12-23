@@ -1,19 +1,19 @@
 <?php
 /**
- * The Template for displaying product archives, including the main shop page which is a post type archive
- *
- * This template can be overridden by copying it to yourtheme/woocommerce/archive-product.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
- * @see https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates
- * @version 3.4.0
- */
+* The Template for displaying product archives, including the main shop page which is a post type archive
+*
+* This template can be overridden by copying it to yourtheme/woocommerce/archive-product.php.
+*
+* HOWEVER, on occasion WooCommerce will need to update template files and you
+* (the theme developer) will need to copy the new files to your theme to
+* maintain compatibility. We try to do this as little as possible, but it does
+* happen. When this occurs the version of the template file will be bumped and
+* the readme will list any important changes.
+*
+* @see https://docs.woocommerce.com/document/template-structure/
+* @package WooCommerce/Templates
+* @version 3.4.0
+*/
 
 defined( 'ABSPATH' ) || exit;
 
@@ -33,10 +33,12 @@ get_header('shop');
   </div>
 
   <?php
+  $booked;
   $args = array(
     'post_type'=>'product',
     'posts_per_page'=> 28,
-    'orderby'=> "default"
+    'orderby'=> "default",
+    // 'woocommerce_booking_is_booked_on_day' => $booked,
   );
   $q = new WP_Query($args);
   if ($q->have_posts()):
@@ -45,6 +47,14 @@ get_header('shop');
       <?php
 
       while ($q->have_posts()):$q->the_post();
+
+      // el lugar esta ocupado?
+      // recibe id de los lugares
+      $lugar_id = $product->get_id();
+      $lugar = wc_get_product( $lugar_id );
+      $ocupado = $lugar->woocommerce_booking_single_check_availability_text();
+
+        var_dump($lugar_id,$ocupado);
 
       wc_get_template_part('content','product');
 
