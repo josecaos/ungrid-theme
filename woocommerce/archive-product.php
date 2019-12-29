@@ -18,19 +18,43 @@
 defined( 'ABSPATH' ) || exit;
 
 //
-get_header('shop');
-
+get_header('shop');s
 ?>
 <section class="container">
   <br>
   <h3 class="col-12 text-center">Welcome to Yaya Beach</h3>
   <p class="subtitle col-12 text-center">Below you can see a map of our club facilities, choose your spot, combos and get ready to have a good time with us.</p>
+
 </section>
+<section id="calendario-booking" class="container-fluid">
+  <div class="col-12">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-lg-6">
+
+      <?php
+
+      echo do_shortcode('[wbc-calendar]');
+
+      ?>
+
+    </div>
+
+    <div class="col-xs-12 col-md-4 col-lg-6">
+      <h3>Texto de Prueba</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+    </div>
+
+  </div>
+  </div>
+
+</section>
+
 <section id="mapa_playa" class="ungrid container-fluid">
 
   <div class="fondo-playa col-12 imgLiquid imgLiquidFill">
     <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/YAYA_arena.png" alt="YayaBeach Club Mahahual">
   </div>
+
 
   <?php
   $booked;
@@ -38,9 +62,10 @@ get_header('shop');
     'post_type'=>'product',
     'posts_per_page'=> 28,
     'orderby'=> "default",
-    // 'woocommerce_booking_is_booked_on_day' => $booked,
+    'type' => 'booking'
   );
   $q = new WP_Query($args);
+  // $q = wc_get_products($args);
   if ($q->have_posts()):
     ?>
     <ul class="products">
@@ -49,13 +74,19 @@ get_header('shop');
       while ($q->have_posts()):$q->the_post();
 
       // el lugar esta ocupado?
+      // $start_date = strtotime(date("Y-m-d",current_time( 'timestamp' )));
+      // $end_date = strtotime("+90 days" . date("Y-m-d",current_time( 'timestamp' )));
       // recibe id de los lugares
       $lugar_id = $product->get_id();
-      $lugar = wc_get_product( $lugar_id );
-      $ocupado = $lugar->woocommerce_booking_single_check_availability_text();
+      // $lugar_obj = wc_get_product( $lugar_id );
+      $lugar_obj = new WC_Product_Booking( $lugar_id );
+      $disponible = $lugar_obj->is_purchasable();
 
-        var_dump($lugar_id,$ocupado);
-
+      // var_dump($disponible);
+      // var_dump($lugar_obj);
+      // var_dump($product);
+      // var_dump($lugar_id);
+      //
       wc_get_template_part('content','product');
 
     endwhile;

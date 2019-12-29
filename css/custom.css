@@ -165,6 +165,45 @@ label {
 .ui-datepicker-next.ui-corner-all {
   background-color: transparent !important;
 }
+/* Calendario Mapa  */
+#calendario-booking {
+  padding: 1rem 0;
+  background: rgba(235,235,235,0);
+  background: -moz-linear-gradient(top, rgba(235,235,235,0) 0%, rgba(243,234,211,0) 4%, rgba(254,233,182,0.15) 9%, rgba(248,222,170,0.3) 14%, rgba(248,222,170,1) 37%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(235,235,235,0)), color-stop(4%, rgba(243,234,211,0)), color-stop(9%, rgba(254,233,182,0.15)), color-stop(14%, rgba(248,222,170,0.3)), color-stop(37%, rgba(248,222,170,1)));
+  background: -webkit-linear-gradient(top, rgba(235,235,235,0) 0%, rgba(243,234,211,0) 4%, rgba(254,233,182,0.15) 9%, rgba(248,222,170,0.3) 14%, rgba(248,222,170,1) 37%);
+  background: -o-linear-gradient(top, rgba(235,235,235,0) 0%, rgba(243,234,211,0) 4%, rgba(254,233,182,0.15) 9%, rgba(248,222,170,0.3) 14%, rgba(248,222,170,1) 37%);
+  background: -ms-linear-gradient(top, rgba(235,235,235,0) 0%, rgba(243,234,211,0) 4%, rgba(254,233,182,0.15) 9%, rgba(248,222,170,0.3) 14%, rgba(248,222,170,1) 37%);
+  background: linear-gradient(to bottom, rgba(235,235,235,0) 0%, rgba(243,234,211,0) 4%, rgba(254,233,182,0.15) 9%, rgba(248,222,170,0.3) 14%, rgba(248,222,170,1) 37%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebebeb', endColorstr='#f8deaa', GradientType=0 );
+}
+.fc-today {
+  background-color: lime !important;
+}
+.fc-day-top {
+  cursor: pointer;
+}
+.fc-day-top:hover {
+  background-color: orange !important;
+}
+/* .fc-event-container {
+  display: none;
+} */
+.fc-event {
+  /* background-color: transparent !important;
+  font-size: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important; */
+}
+.fc-event-container {
+  height: 0px !important;
+  border: 0px !important;
+}
+.fc-right {
+  /* boton derecho */
+  display: none;
+}
 /*  */
 /* responsive */
 @media only screen and (max-width:980px) {
