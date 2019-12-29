@@ -137,22 +137,7 @@ function lugar_disponible() {
 
         let fecha = item.dataset.date;
         reconoce_dia(fecha);
-        // extrae_disponibles(item);
-
-// DEBUG: trae indice de <td> con respecto a la fecha
-        let trBG = document.querySelectorAll(`[data-date*="${fecha}"]`);
-        trBG.forEach((item) => {
-          console.log('DEBUG: ', item.cellIndex);
-          // .fc-day-grid index
-          let semana = item.closest('.fc-week');
-          semana = semana.children[1].querySelectorAll('tr td');
-          semana.forEach((item) => {
-            console.log("DEBUG 1.5: ", item);
-          })
-          console.log('DEBUG2: ',semana);
-        });
-        //.fc-content-skeleton
-
+        extrae_disponibles(fecha);
 
         //
       })
@@ -167,9 +152,24 @@ function lugar_disponible() {
     console.log(subString);
   }
 
-  const extrae_disponibles = (elemento) => {
-    // let disponible = document.querySelector(elemento);
-    console.log('EXTRAE_DISPONIBLE', elemento);
+  const extrae_disponibles = (fecha) => {
+    // DEBUG: trae indice de <td> con respecto a la fecha
+    let trBG = document.querySelectorAll(`[data-date*="${fecha}"]`);
+    trBG.forEach((item) => {
+      let indiceTR = item.cellIndex;
+      console.log('IndiceTR: ', indiceTR);
+      // ubica semana y explora por datos
+      let semana = item.closest('.fc-week');
+      let semanaTR = semana.children[1].querySelectorAll('tbody tr');
+      semanaTR.forEach((item,i) => {
+        if (i === indiceTR) {
+          let hijo = item.querySelector('span');
+          console.log(`DEBUG 1.5: ${i}`, hijo.textContent);
+
+        }
+      })
+      // console.log('DEBUG2: ',semanaTR);
+    });
   }
 
 }
