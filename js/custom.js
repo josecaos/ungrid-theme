@@ -13,6 +13,37 @@ const row3 = [
   ['20%','230%','820%','190%','300%','400%','500%','600%',"700%",'940%'],
   [ "59%", "73%", "71%", "51%", "53%", "55%", "56%", "58%", "60%", "61%" ]
 ]
+const todosLugares = [
+  "Bed VIP2",
+  "Bed VIP1",
+  "Bed VIP2",
+  "Bed VIP3",
+  "Bed VIP4",
+  "Bed VIP5",
+  "Bed VIP6",
+  "AREA A",
+  "AREA B",
+  "AREA C",
+  "Bed A1",
+  "Bed A2",
+  "Bed A3",
+  "Bed A4",
+  "Bed A5",
+  "Bed A6",
+  "Bed A7",
+  "Bed B1",
+  "Bed B2",
+  "Bed B3",
+  "Bed B4",
+  "Bed B5",
+  "Bed B6",
+  "Bed B7",
+  "Bed C1",
+  "Bed C2",
+  "Bed C3",
+  "Bed C4",
+  "Bed C5",
+];
 const mappedElement = "#mapa_playa ul.products li"
 const searchForTag = "#mapa_playa ul.products li a h2"
 const parentContainer = "#mapa_playa"
@@ -134,11 +165,11 @@ function lugar_disponible() {
     let debug = document.querySelectorAll('.fc-event-container a');
     dia.forEach((item) => {
       item.addEventListener('click', () => {
-
+        //
         let fecha = item.dataset.date;
+        let existentes = extrae_disponibles(fecha);
         reconoce_dia(fecha);
-        extrae_disponibles(fecha);
-
+        compara_disponibles(existentes,todosLugares);
         //
       })
     })
@@ -155,10 +186,11 @@ function lugar_disponible() {
   const extrae_disponibles = (fecha) => {
 
     let trBG = document.querySelectorAll(`[data-date*="${fecha}"]`);
+    let resultado = [];
 
     trBG.forEach((item) => {
       let indiceDia = item.cellIndex;
-      console.log('IndiceDia: ', indiceDia);
+      // console.log('IndiceDia: ', indiceDia);
       // ubica semana de clickeado y explora por datos
       let semana = item.closest('.fc-week');
       //
@@ -167,54 +199,86 @@ function lugar_disponible() {
 
       switch (indiceDia) {
         case 0:
-          relativoDia = 7;
-          break;
+        relativoDia = 7;
+        break;
         case 1:
-          relativoDia = 6;
-          break;
+        relativoDia = 6;
+        break;
         case 2:
-          relativoDia = 5;
-          break;
+        relativoDia = 5;
+        break;
         case 3:
-          relativoDia = 4;
-          break;
+        relativoDia = 4;
+        break;
         case 4:
-          relativoDia = 3;
-          break;
+        relativoDia = 3;
+        break;
         case 5:
-          relativoDia = 2;
-          break;
+        relativoDia = 2;
+        break;
         case 6:
-          relativoDia = 1;
-          break;
+        relativoDia = 1;
+        break;
         case 7:
-          relativoDia = 0;
-          break;
+        relativoDia = 0;
+        break;
       }
       // por cada row en la semana clickeada
       semanaTR.forEach((item,i) => {
 
         // TODO: detecta cuantos td hay
-        let eventosSemana = item.children.length;
-        console.log("CANTIDAD EVENTOS: ", eventosSemana);
+        let disponiblesSemana = item.children.length;
+        // console.log("CANTIDAD EVENTOS: ", disponiblesSemana);
+
         // TODO: Si la cantidad de elementos es distinto al relativoDia
         // del indice de la semana, no lo imprimas
-
-        if (eventosSemana === relativoDia) {
-          //busca <td> por indice de semana
+        // console.log("RELATIVO DIA: ", relativoDia);
+        // if (disponiblesSemana === relativoDia) {
+        if (disponiblesSemana >= relativoDia) {
           let tableData = item.children[indiceDia];
-          console.log("TABLE DATA: ", tableData);
+          //busca <td> por indice de semana
+          // console.log("TABLE DATA: ", tableData);
           // busca todos los textos
-          let spanData = tableData.querySelector('span');//busca el texto dentro del row
-          console.log(`Texto ${i}: `, spanData.textContent);
-          //
-        } else {
-          console.log("ESTO NUNCA PASO");
+          let ocupados = 0
+          if ( !! tableData ) {//evita error
+            let spanData = tableData.querySelector('span');//busca el texto dentro del row
+            if ( !! spanData ) {//evita error
+              // console.log(`Texto ${i}: `, spanData.textContent);
+              resultado.push(spanData.textContent);
+            }
+            //
+          } else {
+            // DEBUG:
+            ocupados++;
+            console.log("OCUPADO");
+          }
         }
 
       })
-      // console.log('Semana: ',semanaTR);
+      //
     });
+    return resultado;
   }
 
+  const compara_disponibles = (disponibles, lugaresTodos) => {
+
+    let productos = document.querySelectorAll(".product");
+    let disponiblesFiltrado = [];
+    // TODO: busca todos los lugares en el array de resultado
+    disponibles.forEach((item) => {
+
+      let existe;
+      existe = lugaresTodos.includes(item);
+
+      if (existe === true) {
+        disponiblesFiltrado.push(item);
+      }
+
+    });
+
+    console.log("Los Disponibles: ", disponiblesFiltrado);
+    // console.log("TODOS: ", lugaresTodos);
+    // console.log("DISPONIBLES: ", disponibles);
+
+  }
 }
