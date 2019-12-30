@@ -21,8 +21,8 @@ const parentHeight = '140vh'
 jQuery(document).ready(() => {
 
   // dbug
-  let newArr = normalizeArray(row3[2],"rest",2)
-  console.log(newArr);
+  // let newArr = normalizeArray(row3[2],"rest",2)
+  // console.log(newArr);
   //
   img();
 
@@ -146,34 +146,75 @@ function lugar_disponible() {
   },1000)
 
   const reconoce_dia = (date) => {
-    let subString = date.substring(
+    let dia = date.substring(
       date.lastIndexOf("-") + 1,
     );
-    console.log(subString);
+    // console.log("Dia: ", dia);
   }
 
   const extrae_disponibles = (fecha) => {
-    // DEBUG: trae indice de <td> con respecto a la fecha
-    let trBG = document.querySelectorAll(`[data-date*="${fecha}"]`);
-    trBG.forEach((item) => {
-      let indiceTR = item.cellIndex;
-      console.log('IndiceTR: ', indiceTR);
-      // ubica semana y explora por datos
-      let semana = item.closest('.fc-week');
-      let semanaTR = semana.children[1].querySelectorAll('tbody tr');
-      semanaTR.forEach((item,i) => {
-        if (i === indiceTR) {
-          let hijo = item.querySelector('span');
-          console.log(`DEBUG 1.5: ${i}`, hijo.textContent);
 
+    let trBG = document.querySelectorAll(`[data-date*="${fecha}"]`);
+
+    trBG.forEach((item) => {
+      let indiceDia = item.cellIndex;
+      console.log('IndiceDia: ', indiceDia);
+      // ubica semana de clickeado y explora por datos
+      let semana = item.closest('.fc-week');
+      //
+      let semanaTR = semana.children[1].querySelectorAll('tbody tr');
+      let relativoDia;
+
+      switch (indiceDia) {
+        case 0:
+          relativoDia = 7;
+          break;
+        case 1:
+          relativoDia = 6;
+          break;
+        case 2:
+          relativoDia = 5;
+          break;
+        case 3:
+          relativoDia = 4;
+          break;
+        case 4:
+          relativoDia = 3;
+          break;
+        case 5:
+          relativoDia = 2;
+          break;
+        case 6:
+          relativoDia = 1;
+          break;
+        case 7:
+          relativoDia = 0;
+          break;
+      }
+      // por cada row en la semana clickeada
+      semanaTR.forEach((item,i) => {
+
+        // TODO: detecta cuantos td hay
+        let eventosSemana = item.children.length;
+        console.log("CANTIDAD EVENTOS: ", eventosSemana);
+        // TODO: Si la cantidad de elementos es distinto al relativoDia
+        // del indice de la semana, no lo imprimas
+
+        if (eventosSemana === relativoDia) {
+          //busca <td> por indice de semana
+          let tableData = item.children[indiceDia];
+          console.log("TABLE DATA: ", tableData);
+          // busca todos los textos
+          let spanData = tableData.querySelector('span');//busca el texto dentro del row
+          console.log(`Texto ${i}: `, spanData.textContent);
+          //
+        } else {
+          console.log("ESTO NUNCA PASO");
         }
+
       })
-      // console.log('DEBUG2: ',semanaTR);
+      // console.log('Semana: ',semanaTR);
     });
   }
 
 }
-
-// TODO: extrae data-date
-//busca los elementos 'a' que tengan ese data-date extraido
-//

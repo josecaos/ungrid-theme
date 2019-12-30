@@ -30,13 +30,13 @@ function UnGrid(objectSelector,titleSelector,namesArray,posXArray,posYArray,back
     // itera sobre el grid
     if (found === false) {
 
-      console.log(name + ": not Mapped!");//debug
+      // console.log(name + ": not Mapped!");//debug
 
     } else if (found === true) {
 
       x = "translateX("+ posXArray[foundIndex]+")"
       y = posYArray[foundIndex]
-      console.log(names[i].innerHTML + ": Mapped");//debug
+      // console.log(names[i].innerHTML + ": Mapped");//debug
       products[i].style.opacity = 1
       products[i].style.display = "block"
       products[i].style.bottom = y
