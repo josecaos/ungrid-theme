@@ -18,33 +18,42 @@
 defined( 'ABSPATH' ) || exit;
 
 //
-get_header('shop');s
+get_header('shop');
 ?>
-<section class="container">
-  <br>
-  <h3 class="col-12 text-center">Welcome to Yaya Beach</h3>
-  <p class="subtitle col-12 text-center">Below you can see a map of our club facilities, choose your spot, combos and get ready to have a good time with us.</p>
 
-</section>
 <section id="calendario-booking" class="container-fluid">
   <div class="col-12">
-  <div class="row">
-    <div class="col-xs-12 col-md-8 col-lg-6">
+    <div class="row">
 
-      <?php
+      <div class="col-xs-12 col-md-4 col-lg-6">
+        <section class="container texto-home">
+          <br>
+          <h3 class="col-12 text-center">Welcome to Yaya Beach</h3>
+          <p class="subtitle col-12 text-center">Below you can see a map of our club facilities, choose your spot and combos  by clicking the desired day in the calendar, then check availability in the map and click your spot.</p>
+          <br>
+          <p class="subtitle col-12 text-center">Or go straight and choose your combos then we will give you the best spot available at your arrival.</p>
 
-      echo do_shortcode('[wbc-calendar]');
+          <div class="best-option-available col-12">
+            <button type="button" name="best-option-available">
+              Give Me the best spot available
+            </button>
+          </div>
 
-      ?>
+        </section>
+
+      </div>
+
+      <div class="col-xs-12 col-md-8 col-lg-6">
+
+        <?php
+
+        echo do_shortcode('[wbc-calendar]');
+
+        ?>
+
+      </div>
 
     </div>
-
-    <div class="col-xs-12 col-md-4 col-lg-6">
-      <h3>Texto de Prueba</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-    </div>
-
-  </div>
   </div>
 
 </section>
@@ -73,20 +82,6 @@ get_header('shop');s
 
       while ($q->have_posts()):$q->the_post();
 
-      // el lugar esta ocupado?
-      // $start_date = strtotime(date("Y-m-d",current_time( 'timestamp' )));
-      // $end_date = strtotime("+90 days" . date("Y-m-d",current_time( 'timestamp' )));
-      // recibe id de los lugares
-      $lugar_id = $product->get_id();
-      // $lugar_obj = wc_get_product( $lugar_id );
-      $lugar_obj = new WC_Product_Booking( $lugar_id );
-      $disponible = $lugar_obj->is_purchasable();
-
-      // var_dump($disponible);
-      // var_dump($lugar_obj);
-      // var_dump($product);
-      // var_dump($lugar_id);
-      //
       wc_get_template_part('content','product');
 
     endwhile;

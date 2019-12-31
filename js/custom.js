@@ -51,12 +51,7 @@ const parentHeight = '140vh'
 
 jQuery(document).ready(() => {
 
-  // dbug
-  // let newArr = normalizeArray(row3[2],"rest",2)
-  // console.log(newArr);
-  //
   img();
-
 
   //detecta cambio en el contenido del calendario
   // jQuery(document).ajaxStart(function() {
@@ -97,63 +92,63 @@ function img() {
 
 }
 
+// //
+// function normalizeArray(array,oper,value,cleanLastChar = true,lastChar = '%') {
 //
-function normalizeArray(array,oper,value,cleanLastChar = true,lastChar = '%') {
-
-  this.array = array;
-  this.oper = oper;
-  this.value = value;
-  this.cleanLastChar = cleanLastChar;
-
-  let newArray = []
-  let simbols = ['+', '-', '*', '/', '**']
-  let simbol
-
-  switch (oper) {
-    case 'sum':
-    simbol = simbols[0]
-    break;
-    case 'rest':
-    simbol = simbols[1]
-    break;
-    case 'times':
-    simbol = simbols[2]
-    break;
-    case 'division':
-    simbol = simbols[3]
-    break;
-    case 'power':
-    simbol = simbols[4]
-    break;
-    default:
-    simbol = simbols[0]
-
-  }
-
-  for (var i = 0; i < array.length; i++) {
-
-    let x,y,z,xclean,zfinal
-
-    x = array[i].toString()
-    y = value.toString()
-
-    if (cleanLastChar === true) {
-
-      xclean = x.slice(0,x.length-1)
-      z = eval(xclean + simbol + y)
-      zfinal = z.toString().concat(lastChar)
-      newArray.push(zfinal)
-
-    } else if (cleanLastChar === false) {
-
-      z = eval(x + simbol + y)
-      newArray.push(z)
-    }
-
-  }//endfor
-
-  return newArray
-}
+//   this.array = array;
+//   this.oper = oper;
+//   this.value = value;
+//   this.cleanLastChar = cleanLastChar;
+//
+//   let newArray = []
+//   let simbols = ['+', '-', '*', '/', '**']
+//   let simbol
+//
+//   switch (oper) {
+//     case 'sum':
+//     simbol = simbols[0]
+//     break;
+//     case 'rest':
+//     simbol = simbols[1]
+//     break;
+//     case 'times':
+//     simbol = simbols[2]
+//     break;
+//     case 'division':
+//     simbol = simbols[3]
+//     break;
+//     case 'power':
+//     simbol = simbols[4]
+//     break;
+//     default:
+//     simbol = simbols[0]
+//
+//   }
+//
+//   for (var i = 0; i < array.length; i++) {
+//
+//     let x,y,z,xclean,zfinal
+//
+//     x = array[i].toString()
+//     y = value.toString()
+//
+//     if (cleanLastChar === true) {
+//
+//       xclean = x.slice(0,x.length-1)
+//       z = eval(xclean + simbol + y)
+//       zfinal = z.toString().concat(lastChar)
+//       newArray.push(zfinal)
+//
+//     } else if (cleanLastChar === false) {
+//
+//       z = eval(x + simbol + y)
+//       newArray.push(z)
+//     }
+//
+//   }//endfor
+//
+//   return newArray
+// }
 
 // interactua con el calendario del mapa
 function lugar_disponible() {
@@ -161,20 +156,23 @@ function lugar_disponible() {
   setTimeout(() => {
 
     let dia = document.querySelectorAll('.fc-day-top');
-
     let debug = document.querySelectorAll('.fc-event-container a');
-    dia.forEach((item) => {
-      item.addEventListener('click', () => {
+
+    dia.forEach((item) => {// click
+
+      let fecha = item.dataset.date;
+      let existentes = extrae_disponibles(fecha);
+
+      item.addEventListener('click', (e) => {
         //
-        let fecha = item.dataset.date;
-        let existentes = extrae_disponibles(fecha);
         reconoce_dia(fecha);
         compara_disponibles(existentes,todosLugares);
         //
-      })
-    })
+      }); //fin click
 
-  },1000)
+    });//fin for
+
+  },2000);
 
   const reconoce_dia = (date) => {
     let dia = date.substring(
@@ -189,14 +187,14 @@ function lugar_disponible() {
     let resultado = [];
 
     trBG.forEach((item) => {
-      let indiceDia = item.cellIndex;
-      // console.log('IndiceDia: ', indiceDia);
+      let indiceDia = item.cellIndex - 1;
       // ubica semana de clickeado y explora por datos
       let semana = item.closest('.fc-week');
       //
       let semanaTR = semana.children[1].querySelectorAll('tbody tr');
       let relativoDia;
 
+      console.log("INDICE DIA: ", indiceDia);
       switch (indiceDia) {
         case 0:
         relativoDia = 7;
@@ -226,31 +224,24 @@ function lugar_disponible() {
       // por cada row en la semana clickeada
       semanaTR.forEach((item,i) => {
 
-        // TODO: detecta cuantos td hay
+        //detecta cuantos td hay
         let disponiblesSemana = item.children.length;
-        // console.log("CANTIDAD EVENTOS: ", disponiblesSemana);
 
-        // TODO: Si la cantidad de elementos es distinto al relativoDia
+        // Si la cantidad de elementos es distinto al relativoDia
         // del indice de la semana, no lo imprimas
-        // console.log("RELATIVO DIA: ", relativoDia);
-        // if (disponiblesSemana === relativoDia) {
         if (disponiblesSemana >= relativoDia) {
           let tableData = item.children[indiceDia];
           //busca <td> por indice de semana
-          // console.log("TABLE DATA: ", tableData);
           // busca todos los textos
-          let ocupados = 0
           if ( !! tableData ) {//evita error
             let spanData = tableData.querySelector('span');//busca el texto dentro del row
             if ( !! spanData ) {//evita error
-              // console.log(`Texto ${i}: `, spanData.textContent);
               resultado.push(spanData.textContent);
             }
             //
           } else {
             // DEBUG:
-            ocupados++;
-            console.log("OCUPADO");
+            console.log(`OCUPADO`);
           }
         }
 
@@ -262,7 +253,6 @@ function lugar_disponible() {
 
   const compara_disponibles = (disponibles, lugaresTodos) => {
 
-    let productos = document.querySelectorAll(".product");
     let disponiblesFiltrado = [];
     // TODO: busca todos los lugares en el array de resultado
     disponibles.forEach((item) => {
@@ -273,12 +263,42 @@ function lugar_disponible() {
       if (existe === true) {
         disponiblesFiltrado.push(item);
       }
+    });
+
+    asigna_disponibilidad(disponiblesFiltrado);
+
+  }
+
+  const asigna_disponibilidad = (disponibles) => {
+
+    let lugares = document.querySelectorAll(".product");
+    let disponible;
+    if (disponibles.length != 0) {
+
+    //asigna clase hidden a section.sold "cintillo de ocupado"
+    lugares.forEach((item,i) => {
+      // objeto texto producto
+      let texto = item.querySelector(".woocommerce-loop-product__title");
+      //asigna cintillo
+      disponible = disponibles.includes(texto.textContent)
+      // console.log(
+      //   "Lugares", disponibles,
+      //   "TEXTO: ", texto.textContent,
+      //   "DISPONIBLE: ", disponible,
+      // );
+      let cintilloOcupado = item.querySelector(".sold");
+      if (disponible === false) {
+        cintilloOcupado.classList.remove("hidden");
+      } else if (disponible === true) {
+        cintilloOcupado.classList.add("hidden");
+      }
 
     });
 
-    console.log("Los Disponibles: ", disponiblesFiltrado);
-    // console.log("TODOS: ", lugaresTodos);
-    // console.log("DISPONIBLES: ", disponibles);
+  } else {
+    console.log("Este día no hay lugares disponibles");
+  }
 
   }
+
 }

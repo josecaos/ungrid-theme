@@ -9,6 +9,9 @@
 h1,h2,h3,h4,h5,h6 {
   color: var(--color-dark)
 }
+.hidden {
+  display: none !important;
+}
 #mapa_playa ul.products li {
   opacity: 0;
 }
@@ -167,7 +170,7 @@ label {
 }
 /* Calendario Mapa  */
 #calendario-booking {
-  padding: 1rem 0;
+  padding: 3rem 0;
   background: rgba(235,235,235,0);
   background: -moz-linear-gradient(top, rgba(235,235,235,0) 0%, rgba(243,234,211,0) 4%, rgba(254,233,182,0.15) 9%, rgba(248,222,170,0.3) 14%, rgba(248,222,170,1) 37%);
   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(235,235,235,0)), color-stop(4%, rgba(243,234,211,0)), color-stop(9%, rgba(254,233,182,0.15)), color-stop(14%, rgba(248,222,170,0.3)), color-stop(37%, rgba(248,222,170,1)));
@@ -176,6 +179,21 @@ label {
   background: -ms-linear-gradient(top, rgba(235,235,235,0) 0%, rgba(243,234,211,0) 4%, rgba(254,233,182,0.15) 9%, rgba(248,222,170,0.3) 14%, rgba(248,222,170,1) 37%);
   background: linear-gradient(to bottom, rgba(235,235,235,0) 0%, rgba(243,234,211,0) 4%, rgba(254,233,182,0.15) 9%, rgba(248,222,170,0.3) 14%, rgba(248,222,170,1) 37%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebebeb', endColorstr='#f8deaa', GradientType=0 );
+}
+.fc td, .fc th {
+  border-color: var(--color-yaya) !important;
+}
+.fc-button-group {
+  margin-top: 0.3rem;
+}
+.fc button {
+  height: 2rem !important;
+  padding: 0.25rem 0.75rem !important;
+  cursor: pointer !important;
+}
+
+.fc-header-toolbar h2 {
+  padding: 0 !important;
 }
 .fc-today {
   background-color: lime !important;
@@ -205,6 +223,17 @@ label {
   display: none;
 }
 /*  */
+.texto-home {
+  padding-bottom: 3rem;
+}
+.best-option-available {
+  display: flex;
+  justify-content: center;
+}
+/* mapa */
+.lugar-mapa {
+}
+
 /* responsive */
 @media only screen and (max-width:980px) {
   section.related.products {
@@ -215,6 +244,9 @@ label {
   }
   #et-top-navigation .et-cart-info {
     margin-top: 9px;
+  }
+  #calendario-booking {
+    padding: 1rem 0;
   }
 }
 @media only screen and (max-width:767px) {
