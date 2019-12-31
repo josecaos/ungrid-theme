@@ -5,6 +5,7 @@
   --color-yaya: #2EA3F2;
   --color-hover: #1D02E1;
   --color-dark: #422918;
+  --color-clear: whitesmoke;
 }
 h1,h2,h3,h4,h5,h6 {
   color: var(--color-dark)
@@ -23,7 +24,7 @@ h1,h2,h3,h4,h5,h6 {
 div#et-main-area .products li a h2 {
   text-align: center;
   font-weight: 100;
-  font-size: 1em;
+  font-size: 0.75rem;
   padding-top: 6px;
   padding-bottom: 2px;
   /* margin-bottom: 0px; */
@@ -204,9 +205,9 @@ label {
 .fc-day-top:hover {
   background-color: orange !important;
 }
-/* .fc-event-container {
-  display: none;
-} */
+.fc-event-container {
+display: none;
+}
 .fc-event {
   /* background-color: transparent !important;
   font-size: 0 !important;
@@ -233,7 +234,31 @@ label {
 /* mapa */
 .lugar-mapa {
 }
-
+.sold {
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.15);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.sold p {
+  margin: 0;
+  position: absolute;
+  transform: rotate(-45deg);
+  background-color: rgba(0,0,0,0.75);
+  color: var(--color-clear);
+  padding: 0.25rem 0.5rem;
+  top: 5%;
+  left: -25%;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+.et_overlay {
+  border-radius: 5px !important;
+}
 /* responsive */
 @media only screen and (max-width:980px) {
   section.related.products {
@@ -248,6 +273,13 @@ label {
   #calendario-booking {
     padding: 1rem 0;
   }
+  .sold p {
+    transform: rotate(-45deg);
+    padding: 0.125rem 0.25rem;
+    font-size: 0.75rem
+    top: 2%;
+    left: -30%;
+  }
 }
 @media only screen and (max-width:767px) {
   .woocommerce-page ul.products li.product:nth-child(n) {
@@ -259,6 +291,13 @@ label {
   .et-social-icon {
     text-align: center;
   }
+  .sold p {
+    transform: rotate(-45deg);
+    padding: 0.125rem 0.25rem;
+    font-size: 0.75rem;
+    top: 1%;
+    left: -26%;
+  }
 }
 @media only screen and (max-width:479px) {
   .woocommerce-page ul.products li.product:nth-child(n) {
@@ -266,6 +305,16 @@ label {
   }
   .price {
     display: none !important;
+  }
+  .sold p {
+    transform: rotate(-45deg);
+    padding: 0;
+    font-size: 0.65rem;
+    top: 4%;
+    left: -13%;
+  }
+  div#et-main-area .products li a h2 {
+    font-size: 0.65rem;
   }
 }
 /* Animation */

@@ -27,7 +27,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 <li <?php wc_product_class( 'lugar-mapa', $product ); ?>>
 
 <section class="sold hidden">
-	<p>Occupied</p>
+	<p>Sold</p>
 </section>
 
 	<?php

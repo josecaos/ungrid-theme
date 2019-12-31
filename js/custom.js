@@ -187,7 +187,7 @@ function lugar_disponible() {
     let resultado = [];
 
     trBG.forEach((item) => {
-      let indiceDia = item.cellIndex - 1;
+      let indiceDia = item.cellIndex;
       // ubica semana de clickeado y explora por datos
       let semana = item.closest('.fc-week');
       //
@@ -224,13 +224,12 @@ function lugar_disponible() {
       // por cada row en la semana clickeada
       semanaTR.forEach((item,i) => {
 
-        //detecta cuantos td hay
+        //detecta cuantos td existen
         let disponiblesSemana = item.children.length;
-
-        // Si la cantidad de elementos es distinto al relativoDia
+          // Si la cantidad de elementos es distinto al relativoDia
         // del indice de la semana, no lo imprimas
         if (disponiblesSemana >= relativoDia) {
-          let tableData = item.children[indiceDia];
+          let tableData = item.children[indiceDia-1];
           //busca <td> por indice de semana
           // busca todos los textos
           if ( !! tableData ) {//evita error
@@ -273,7 +272,7 @@ function lugar_disponible() {
 
     let lugares = document.querySelectorAll(".product");
     let disponible;
-    if (disponibles.length != 0) {
+    if (disponibles.length != 0) {//pasa si hay lugares
 
     //asigna clase hidden a section.sold "cintillo de ocupado"
     lugares.forEach((item,i) => {
@@ -281,22 +280,20 @@ function lugar_disponible() {
       let texto = item.querySelector(".woocommerce-loop-product__title");
       //asigna cintillo
       disponible = disponibles.includes(texto.textContent)
-      // console.log(
-      //   "Lugares", disponibles,
-      //   "TEXTO: ", texto.textContent,
-      //   "DISPONIBLE: ", disponible,
-      // );
+
       let cintilloOcupado = item.querySelector(".sold");
       if (disponible === false) {
         cintilloOcupado.classList.remove("hidden");
       } else if (disponible === true) {
         cintilloOcupado.classList.add("hidden");
       }
-
     });
 
   } else {
-    console.log("Este día no hay lugares disponibles");
+    lugares.forEach((item) => {
+      item.querySelector(".sold").classList.remove("hidden");
+    });
+    console.log("No hay lugares disponibles");
   }
 
   }
