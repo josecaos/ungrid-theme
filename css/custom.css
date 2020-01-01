@@ -205,9 +205,11 @@ label {
 .fc-day-top:hover {
   background-color: orange !important;
 }
-.fc-event-container {
+/* desaparece eventos dentro del calendario */
+/* .fc-event-container {
 display: none;
-}
+} */
+/*  */
 .fc-event {
   /* background-color: transparent !important;
   font-size: 0 !important;

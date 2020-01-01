@@ -194,7 +194,6 @@ function lugar_disponible() {
       let semanaTR = semana.children[1].querySelectorAll('tbody tr');
       let relativoDia;
 
-      console.log("INDICE DIA: ", indiceDia);
       switch (indiceDia) {
         case 0:
         relativoDia = 7;
@@ -226,6 +225,12 @@ function lugar_disponible() {
 
         //detecta cuantos td existen
         let disponiblesSemana = item.children.length;
+        // DEBUG:
+        // for (var i = 0; i < disponiblesSemana; i++) {
+        //
+        //     console.log(item.children[i]); //second console output
+        // }
+        //
           // Si la cantidad de elementos es distinto al relativoDia
         // del indice de la semana, no lo imprimas
         if (disponiblesSemana >= relativoDia) {

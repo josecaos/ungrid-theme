@@ -81,7 +81,8 @@ get_header('shop');
       <?php
 
       while ($q->have_posts()):$q->the_post();
-
+      // var_dump($post->post_title);
+      // var_dump($post);
       wc_get_template_part('content','product');
 
     endwhile;
