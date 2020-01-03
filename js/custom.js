@@ -231,10 +231,10 @@ function lugar_disponible() {
         //     console.log(item.children[i]); //second console output
         // }
         //
-          // Si la cantidad de elementos es distinto al relativoDia
+        // Si la cantidad de elementos es distinto al relativoDia
         // del indice de la semana, no lo imprimas
         if (disponiblesSemana >= relativoDia) {
-          let tableData = item.children[indiceDia-1];
+          let tableData = item.children[indiceDia];
           //busca <td> por indice de semana
           // busca todos los textos
           if ( !! tableData ) {//evita error

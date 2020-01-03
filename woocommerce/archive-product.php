@@ -47,7 +47,15 @@ get_header('shop');
 
         <?php
 
-        echo do_shortcode('[wbc-calendar]');
+        $args = array('page_id' => 23065);
+        $q = new WP_Query($args);
+
+        if ($q->have_posts()):
+          $q->the_post();
+
+          echo the_content();
+
+        endif;
 
         ?>
 
