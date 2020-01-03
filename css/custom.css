@@ -182,14 +182,22 @@ label {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebebeb', endColorstr='#f8deaa', GradientType=0 );
 }
 /*  calendario*/
-.wc-bookings-availability-event-table {
-  /* display: none; */
+.wc-bookings-availability-calendar {
+grid-template-rows: auto;
+}
+.wc-bookings-availability-calendar-day {
+  display: none;
 }
 .wc-bookings-availability-cal-date {
   cursor: pointer;
+  grid-area: unset !important;
+  height:
 }
 .wc-bookings-availability-cal-date:hover {
   background-color: rgba(0,0,0,0.25);
+}
+.wc-bookings-availability-event-table {
+  /* display: none; */
 }
 /*  */
 .texto-home {
@@ -212,7 +220,7 @@ label {
   border: 1px solid var(--color-yaya);
   color: var(--color-clear);
   border: 1px solid var(--color-clear);
-  }
+}
 
 /* mapa */
 .lugar-mapa {

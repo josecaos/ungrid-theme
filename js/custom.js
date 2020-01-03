@@ -1,3 +1,4 @@
+// Ungrid settings para posicionar los productos
 const row1 = [
   ["Bed VIP2","Bed A1","Bed A2","Bed A3","Bed A4","Bed A5","Bed A6","Bed A7","Bed VIP1"],
   ['10%','150%','260%','370%','480%','590%','700%','810%','940%'],
@@ -12,7 +13,7 @@ const row3 = [
   ["AREA A","AREA B","AREA C","Bed VIP6","Bed C1","Bed C2","Bed C3","Bed C4","Bed C5","Bed VIP5"],
   ['20%','230%','820%','190%','300%','400%','500%','600%',"700%",'940%'],
   [ "59%", "73%", "71%", "51%", "53%", "55%", "56%", "58%", "60%", "61%" ]
-]
+] // fin ungrid settings
 const todosLugares = [
   "Bed VIP2",
   "Bed VIP1",
@@ -54,6 +55,8 @@ jQuery(document).ready(() => {
   img();
   lugar_disponible();
 
+
+
   // Mapa solo en Home, Archive o Custom term
   if (document.body.classList.contains('home') ||
   document.body.classList.contains('archive') ||
@@ -84,105 +87,78 @@ function img() {
 
 }
 
-// //
-// function normalizeArray(array,oper,value,cleanLastChar = true,lastChar = '%') {
-//
-//   this.array = array;
-//   this.oper = oper;
-//   this.value = value;
-//   this.cleanLastChar = cleanLastChar;
-//
-//   let newArray = []
-//   let simbols = ['+', '-', '*', '/', '**']
-//   let simbol
-//
-//   switch (oper) {
-//     case 'sum':
-//     simbol = simbols[0]
-//     break;
-//     case 'rest':
-//     simbol = simbols[1]
-//     break;
-//     case 'times':
-//     simbol = simbols[2]
-//     break;
-//     case 'division':
-//     simbol = simbols[3]
-//     break;
-//     case 'power':
-//     simbol = simbols[4]
-//     break;
-//     default:
-//     simbol = simbols[0]
-//
-//   }
-//
-//   for (var i = 0; i < array.length; i++) {
-//
-//     let x,y,z,xclean,zfinal
-//
-//     x = array[i].toString()
-//     y = value.toString()
-//
-//     if (cleanLastChar === true) {
-//
-//       xclean = x.slice(0,x.length-1)
-//       z = eval(xclean + simbol + y)
-//       zfinal = z.toString().concat(lastChar)
-//       newArray.push(zfinal)
-//
-//     } else if (cleanLastChar === false) {
-//
-//       z = eval(x + simbol + y)
-//       newArray.push(z)
-//     }
-//
-//   }//endfor
-//
-//   return newArray
-// }
-
 // interactua con el calendario del mapa
 function lugar_disponible() {
 
-  setTimeout(() => {
+  let dia = document.querySelectorAll('.wc-bookings-availability-cal-date');
 
-    let dia = document.querySelectorAll('.wc-bookings-availability-cal-date');
+  dia.forEach((item) => {// click
 
-    dia.forEach((item) => {// click
+    let numeroDia = item.textContent;
 
-      let numeroDia = item.textContent;
+    item.addEventListener('click', () => {
+      // TODO: si la ventana es menor a 589 busca en lista movil
+      let disponiblesDia, existentes;
+      let ventana = window.innerWidth;
 
-      item.addEventListener('click', () => {
-        let disponiblesDia = item.nextElementSibling
-        let existentes = extrae_disponibles(disponiblesDia.children);
-
+      if (ventana > 588) {// escritorio
+        disponiblesDia = item.nextElementSibling
+        existentes = extrae_disponibles(disponiblesDia.childNodes);
         compara_disponibles(existentes,todosLugares);
 
-        //
-      }); //fin click
+      } else {// movil
 
-    });//fin for
+        setTimeout(() => {
 
-  },500);
+          let disponiblesDiaMovil = document.querySelectorAll('.wc-bookings-availability-event-table .wc-bookings-availability-item-information');
+
+          disponiblesDia = disponiblesDiaMovil;
+          existentes = extrae_disponibles_movil(disponiblesDia);
+          compara_disponibles_movil(existentes,todosLugares);
+
+        },6000);
+
+      }//termina interaccion movil
+
+    }); //fin click
+
+  });//fin for
+
 
   const extrae_disponibles = (lugares) => {
 
     let resultado = [];
-
-    for (let fecha of lugares) {
-      let lugar = fecha.childNodes[0].textContent;
+    for (let spot of lugares) {
+      let lugar = spot.childNodes[0].textContent;
       //
       resultado.push(lugar);
     }
-    console.log("Cada lugar en calendario: ", resultado);
+    return resultado;
+  }
+  const extrae_disponibles_movil = (lugares) => {
+
+    let resultado = [];
+
+    for (let spot of lugares) {
+
+      let textoEstatus = spot.parentElement.querySelector('button');
+      let lugar = spot.childNodes[0].childNodes[0].textContent;
+
+      if (textoEstatus.textContent === 'Sold out') {
+        console.log("No Disponible!");
+      } else {
+        console.log("Disponible!");
+        resultado.push(lugar);
+      }
+
+    }
     return resultado;
   }
 
   const compara_disponibles = (disponibles, lugaresTodos) => {
 
     let disponiblesFiltrado = [];
-    // TODO: busca todos los lugares en el array de resultado
+    // busca todos los lugares en el array de resultado
     disponibles.forEach((item) => {
 
       let existe;
@@ -193,8 +169,26 @@ function lugar_disponible() {
       }
     });
 
-    console.log("cada lugar disponible: ", disponiblesFiltrado);
     asigna_disponibilidad(disponiblesFiltrado);
+
+  }
+
+  const compara_disponibles_movil = (disponibles, lugaresTodos) => {
+
+    let disponiblesFiltrado = [];
+    // busca todos los lugares en el array de resultado
+    console.log(disponibles);
+    disponibles.forEach((item) => {
+
+      let existe;
+      existe = lugaresTodos.includes(item);
+
+      if (existe === true) {
+        disponiblesFiltrado.push(item);
+      }
+    });
+
+    asigna_disponibilidad_movil(disponiblesFiltrado);
 
   }
 
@@ -223,9 +217,37 @@ function lugar_disponible() {
       lugares.forEach((item) => {
         item.querySelector(".sold").classList.remove("hidden");
       });
-      console.log("No hay lugares disponibles");
     }
 
+  }
+
+}
+const asigna_disponibilidad_movil = (disponibles) => {
+
+  let lugares = document.querySelectorAll(".product");
+  let disponible;
+  if (disponibles.length != 0) {//pasa si hay lugares
+
+    //asigna clase hidden a section.sold "cintillo de ocupado"
+    lugares.forEach((item,i) => {
+      // objeto texto producto
+      let texto = item.querySelector(".woocommerce-loop-product__title");
+      //asigna cintillo
+      disponible = disponibles.includes(texto.textContent)
+
+      let cintilloOcupado = item.querySelector(".sold");
+      if (disponible === false) {
+        cintilloOcupado.classList.remove("hidden");
+      } else if (disponible === true) {
+        cintilloOcupado.classList.add("hidden");
+      }
+    });
+
+  } else {
+    lugares.forEach((item) => {
+      item.querySelector(".sold").classList.remove("hidden");
+    });
+    // console.log("No hay lugares disponibles");
   }
 
 }
