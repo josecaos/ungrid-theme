@@ -52,15 +52,7 @@ const parentHeight = '140vh'
 jQuery(document).ready(() => {
 
   img();
-
-  //detecta cambio en el contenido del calendario
-  // jQuery(document).ajaxStart(function() {
-  //   console.log('Ajax call started');
-  //   jQuery("#loading").show();
-  // });
-  jQuery(document).ajaxComplete(function() {
-    lugar_disponible()
-  });
+  lugar_disponible();
 
   // Mapa solo en Home, Archive o Custom term
   if (document.body.classList.contains('home') ||
@@ -155,103 +147,35 @@ function lugar_disponible() {
 
   setTimeout(() => {
 
-    let dia = document.querySelectorAll('.fc-day-top');
-    let debug = document.querySelectorAll('.fc-event-container a');
+    let dia = document.querySelectorAll('.wc-bookings-availability-cal-date');
 
     dia.forEach((item) => {// click
 
-      let fecha = item.dataset.date;
-      let existentes = extrae_disponibles(fecha);
+      let numeroDia = item.textContent;
 
-      item.addEventListener('click', (e) => {
-        //
-        reconoce_dia(fecha);
+      item.addEventListener('click', () => {
+        let disponiblesDia = item.nextElementSibling
+        let existentes = extrae_disponibles(disponiblesDia.children);
+
         compara_disponibles(existentes,todosLugares);
+
         //
       }); //fin click
 
     });//fin for
 
-  },2000);
+  },500);
 
-  const reconoce_dia = (date) => {
-    let dia = date.substring(
-      date.lastIndexOf("-") + 1,
-    );
-    // console.log("Dia: ", dia);
-  }
+  const extrae_disponibles = (lugares) => {
 
-  const extrae_disponibles = (fecha) => {
-
-    let trBG = document.querySelectorAll(`[data-date*="${fecha}"]`);
     let resultado = [];
 
-    trBG.forEach((item) => {
-      let indiceDia = item.cellIndex;
-      // ubica semana de clickeado y explora por datos
-      let semana = item.closest('.fc-week');
+    for (let fecha of lugares) {
+      let lugar = fecha.childNodes[0].textContent;
       //
-      let semanaTR = semana.children[1].querySelectorAll('tbody tr');
-      let relativoDia;
-
-      switch (indiceDia) {
-        case 0:
-        relativoDia = 7;
-        break;
-        case 1:
-        relativoDia = 6;
-        break;
-        case 2:
-        relativoDia = 5;
-        break;
-        case 3:
-        relativoDia = 4;
-        break;
-        case 4:
-        relativoDia = 3;
-        break;
-        case 5:
-        relativoDia = 2;
-        break;
-        case 6:
-        relativoDia = 1;
-        break;
-        case 7:
-        relativoDia = 0;
-        break;
-      }
-      // por cada row en la semana clickeada
-      semanaTR.forEach((item,i) => {
-
-        //detecta cuantos td existen
-        let disponiblesSemana = item.children.length;
-        // DEBUG:
-        // for (var i = 0; i < disponiblesSemana; i++) {
-        //
-        //     console.log(item.children[i]); //second console output
-        // }
-        //
-        // Si la cantidad de elementos es distinto al relativoDia
-        // del indice de la semana, no lo imprimas
-        if (disponiblesSemana >= relativoDia) {
-          let tableData = item.children[indiceDia];
-          //busca <td> por indice de semana
-          // busca todos los textos
-          if ( !! tableData ) {//evita error
-            let spanData = tableData.querySelector('span');//busca el texto dentro del row
-            if ( !! spanData ) {//evita error
-              resultado.push(spanData.textContent);
-            }
-            //
-          } else {
-            // DEBUG:
-            console.log(`OCUPADO`);
-          }
-        }
-
-      })
-      //
-    });
+      resultado.push(lugar);
+    }
+    console.log("Cada lugar en calendario: ", resultado);
     return resultado;
   }
 
@@ -269,6 +193,7 @@ function lugar_disponible() {
       }
     });
 
+    console.log("cada lugar disponible: ", disponiblesFiltrado);
     asigna_disponibilidad(disponiblesFiltrado);
 
   }
@@ -279,27 +204,27 @@ function lugar_disponible() {
     let disponible;
     if (disponibles.length != 0) {//pasa si hay lugares
 
-    //asigna clase hidden a section.sold "cintillo de ocupado"
-    lugares.forEach((item,i) => {
-      // objeto texto producto
-      let texto = item.querySelector(".woocommerce-loop-product__title");
-      //asigna cintillo
-      disponible = disponibles.includes(texto.textContent)
+      //asigna clase hidden a section.sold "cintillo de ocupado"
+      lugares.forEach((item,i) => {
+        // objeto texto producto
+        let texto = item.querySelector(".woocommerce-loop-product__title");
+        //asigna cintillo
+        disponible = disponibles.includes(texto.textContent)
 
-      let cintilloOcupado = item.querySelector(".sold");
-      if (disponible === false) {
-        cintilloOcupado.classList.remove("hidden");
-      } else if (disponible === true) {
-        cintilloOcupado.classList.add("hidden");
-      }
-    });
+        let cintilloOcupado = item.querySelector(".sold");
+        if (disponible === false) {
+          cintilloOcupado.classList.remove("hidden");
+        } else if (disponible === true) {
+          cintilloOcupado.classList.add("hidden");
+        }
+      });
 
-  } else {
-    lugares.forEach((item) => {
-      item.querySelector(".sold").classList.remove("hidden");
-    });
-    console.log("No hay lugares disponibles");
-  }
+    } else {
+      lugares.forEach((item) => {
+        item.querySelector(".sold").classList.remove("hidden");
+      });
+      console.log("No hay lugares disponibles");
+    }
 
   }
 

@@ -185,6 +185,12 @@ label {
 .wc-bookings-availability-event-table {
   /* display: none; */
 }
+.wc-bookings-availability-cal-date {
+  cursor: pointer;
+}
+.wc-bookings-availability-cal-date:hover {
+  background-color: rgba(0,0,0,0.25);
+}
 /*  */
 .texto-home {
   padding-bottom: 3rem;
