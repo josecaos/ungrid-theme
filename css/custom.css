@@ -183,7 +183,10 @@ label {
 }
 /*  calendario*/
 .wc-bookings-availability-calendar {
-grid-template-rows: auto;
+  grid-template-rows: auto;
+  list-style: none;
+  text-align: center;
+  border-color: transparent;
 }
 .wc-bookings-availability-calendar-day {
   display: none;
@@ -191,7 +194,14 @@ grid-template-rows: auto;
 .wc-bookings-availability-cal-date {
   cursor: pointer;
   grid-area: unset !important;
-  height:
+  grid-area: unset !important;
+  height: 63px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+  border: 1px solid var(--color-yaya) !important;
+  color: var(--color-dark);
 }
 .wc-bookings-availability-cal-date:hover {
   background-color: rgba(0,0,0,0.25);

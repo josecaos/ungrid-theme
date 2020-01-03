@@ -155,7 +155,6 @@ function lugar_disponible() {
       }
 
     }
-    console.log("XXXX>>> ", resultado);
     return resultado;
   }
 
