@@ -144,7 +144,10 @@ function lugar_disponible() {
       let textoEstatus = spot.parentElement.querySelector('button');
       let lugar = spot.childNodes[0].childNodes[0].textContent;
 
-      if (textoEstatus.textContent === 'Sold out') {
+      if (textoEstatus.textContent === "Sold out") {
+        let textoOcupado;
+        textoOcupado = lugar + ' (Sold Out)';
+        resultado.push(textoOcupado);
         console.log("No Disponible!");
       } else {
         console.log("Disponible!");
@@ -152,6 +155,7 @@ function lugar_disponible() {
       }
 
     }
+    console.log("XXXX>>> ", resultado);
     return resultado;
   }
 
