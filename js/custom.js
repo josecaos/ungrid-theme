@@ -45,17 +45,25 @@ const todosLugares = [
   "Bed C4",
   "Bed C5",
 ];
-const mappedElement = "#mapa_playa ul.products li"
-const searchForTag = "#mapa_playa ul.products li a h2"
-const parentContainer = "#mapa_playa"
-const parentHeight = '140vh'
+
+const mappedElement = "#mapa_playa ul.products li";
+const searchForTag = "#mapa_playa ul.products li a h2";
+const parentContainer = "#mapa_playa";
+const parentHeight = '140vh';
 
 jQuery(document).ready(() => {
 
   img();
   lugar_disponible();
-
-
+  // movil
+  // if (window.innerWith < 588) {
+  jQuery(document).ajaxComplete((e) => {
+    console.log("AJAX");
+    // lugar_disponible();
+  });
+  // } else {
+  // default
+  // }
 
   // Mapa solo en Home, Archive o Custom term
   if (document.body.classList.contains('home') ||
@@ -97,7 +105,7 @@ function lugar_disponible() {
     let numeroDia = item.textContent;
 
     item.addEventListener('click', () => {
-      // TODO: si la ventana es menor a 589 busca en lista movil
+      // si la ventana es menor a 589 busca en lista movil
       let disponiblesDia, existentes;
       let ventana = window.innerWidth;
 
@@ -116,7 +124,14 @@ function lugar_disponible() {
           existentes = extrae_disponibles_movil(disponiblesDia);
           compara_disponibles_movil(existentes,todosLugares);
 
-        },6000);
+        }, 5000);
+        // confirma funcion por seguridad de tiempos de carga en el jax del calendario
+        // setTimeout(() => {
+        //
+        //   existentes = extrae_disponibles_movil(disponiblesDia);
+        //   compara_disponibles_movil(existentes,todosLugares);
+        //
+        // },8000);
 
       }//termina interaccion movil
 
@@ -135,6 +150,7 @@ function lugar_disponible() {
     }
     return resultado;
   }
+
   const extrae_disponibles_movil = (lugares) => {
 
     let resultado = [];
