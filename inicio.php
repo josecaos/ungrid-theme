@@ -16,12 +16,13 @@ get_header('shop');
   <div class="fondo-playa col-12 imgLiquid imgLiquidFill">
     <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/YAYA_arena.png" alt="YayaBeach Club Mahahual">
   </div>
-
+isadjfoasidjfoasidfjo
   <?php
   $args = array(
     'post_type'=>'product',
     'posts_per_page'=> 28,
-    'orderby'=> "default"
+    'orderby'=> "default",
+    'product_cat' => 'yaya-spots'
   );
   $q = new WP_Query($args);
   if ($q->have_posts()):
