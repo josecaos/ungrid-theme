@@ -233,7 +233,7 @@ label {
   display: flex;
   justify-content: center;
 }
-.best-option-available button {
+.best-option-available a {
   background-color: var(--color-clear);
   border: 1px solid var(--color-yaya);
   padding: 0.25rem 0.75rem;
@@ -241,7 +241,7 @@ label {
   border-radius: 5px;
   cursor: pointer;
 }
-.best-option-available button:hover {
+.best-option-available a:hover {
   background-color: var(--color-yaya);
   border: 1px solid var(--color-yaya);
   color: var(--color-clear);

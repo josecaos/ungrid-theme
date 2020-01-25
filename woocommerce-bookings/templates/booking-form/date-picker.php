@@ -25,6 +25,7 @@ extract( $field );
 
 $month_before_day = strpos( __( 'F j, Y', 'woocommerce-bookings' ), 'F' ) < strpos( __( 'F j, Y', 'woocommerce-bookings' ), 'j' );
 ?>
+XXXXX
 <fieldset class="wc-bookings-date-picker wc-bookings-date-picker-<?php echo esc_attr( $product_type ); ?> <?php echo esc_attr( implode( ' ', $class ) ); ?>">
 	<div class="picker" data-display="<?php echo esc_attr( $display ); ?>" data-duration-unit="<?php echo esc_attr( $duration_unit ); ?>" data-default-availability="<?php echo $default_availability ? 'true' : 'false'; ?>" data-min_date="<?php echo ! empty( $min_date_js ) ? esc_attr( $min_date_js ) : 0; ?>" data-max_date="<?php echo esc_attr( $max_date_js ); ?>" data-default_date="<?php echo esc_attr( $default_date ); ?>" data-is_range_picker_enabled="<?php echo $is_range_picker_enabled ? 1 : 0; ?>"></div>
 

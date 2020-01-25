@@ -25,6 +25,12 @@ get_header('shop');
   <div class="col-12">
     <div class="row">
 
+/
+get_header('shop');
+?>
+
+<section id="calendario-booking" class="container-fluid">
+  <div class="col-12">
       <div class="col-xs-12 col-md-4 col-lg-6">
         <section class="container texto-home">
           <br>

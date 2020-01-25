@@ -20,7 +20,9 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
 	<div id="wc-bookings-booking-form" class="wc-bookings-booking-form" style="display:none">
 
-		<?php do_action( 'woocommerce_before_booking_form' ); ?>
+		<?php do_action( 'woocommerce_before_booking_form' );
+
+		?>
 
 		<?php $booking_form->output(); ?>
 
