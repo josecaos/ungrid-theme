@@ -34,9 +34,9 @@ get_header('shop');
           <p class="subtitle col-12 text-center">Or go straight and choose your combos then we will give you the best spot available at your arrival.</p>
 
           <div class="best-option-available col-12">
-            <button type="button" name="best-option-available">
+            <a href="https://pitayabeach.com/shop" target="_blank" type="button" name="best-option-available">
               Give Me the best spot available
-            </button>
+            </a>
           </div>
 
         </section>
@@ -78,30 +78,31 @@ get_header('shop');
   $args = array(
     'post_type'=>'product',
     'posts_per_page'=> 28,
-    'orderby'=> "default",
-    'type' => 'booking'
-  );
-  $q = new WP_Query($args);
-  // $q = wc_get_products($args);
-  if ($q->have_posts()):
-    ?>
-    <ul class="products">
-      <?php
+    'orderby'=> 'default',
+    'product_cat'=> 'yaya-spots'
+    );
+      $q = new WP_Query($args);
+      // $q = wc_get_products($args);
+      if ($q->have_posts()):
+        ?>
+        <ul class="products">
+          <?php
 
-      while ($q->have_posts()):$q->the_post();
-      // var_dump($post->post_title);
-      // var_dump($post);
-      wc_get_template_part('content','product');
+          while ($q->have_posts()):$q->the_post();
+          // var_dump($post->post_title);
+          // var_dump($post);
+          wc_get_template_part('content','product');
 
-    endwhile;
-    ?>
-  </ul>
+        endwhile;
+        ?>
+      </ul>
 
-  <div class="header-mar col-12 imgLiquid imgLiquidFill">
-    <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/YAYA_mar.chico.png" alt="YayaBeach Club Mahahual">
-  </div>
-</section>
-<?php
-endif;
-//
-get_footer('shop');
+      <div class="header-mar col-12 imgLiquid imgLiquidFill">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/YAYA_mar.chico.png" alt="YayaBeach Club Mahahual">
+      </div>
+
+    </section>
+    <?php
+  endif;
+  //
+  get_footer('shop');
