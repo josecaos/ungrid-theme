@@ -24,14 +24,7 @@ get_header('shop');
 <section id="calendario-booking" class="container-fluid">
   <div class="col-12">
     <div class="row">
-
-/
-get_header('shop');
-?>
-
-<section id="calendario-booking" class="container-fluid">
-  <div class="col-12">
-      <div class="col-xs-12 col-md-4 col-lg-6">
+      <div class="calendario col-xs-12 col-md-4 col-lg-6">
         <section class="container texto-home">
           <br>
           <h3 class="col-12 text-center">Welcome to Yaya Beach</h3>
@@ -49,7 +42,7 @@ get_header('shop');
 
       </div>
 
-      <div class="col-xs-12 col-md-8 col-lg-6">
+      <div class="calendario col-xs-12 col-md-8 col-lg-6">
 
         <?php
 
@@ -65,14 +58,13 @@ get_header('shop');
 
         ?>
 
-      </div>
-
     </div>
   </div>
 
   <div class="calendario-plantas col-12">
-    <div class="calendario-plantas-cont-img col-12 ">
-      <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/YAYA_plantas.2.png" alt="YayaBeach Club Mahahual">
+    <div class="calendario-planta-fondo col-12 ">
+      <img class="plantas-escritorio" src="<?php echo get_stylesheet_directory_uri(); ?>/img/plantas.yaya.png" alt="YayaBeach Club Mahahual">
+      <img class="plantas-movil" src="<?php echo get_stylesheet_directory_uri(); ?>/img/YAYA_plantas.png" alt="YayaBeach Club Mahahual">
     </div>
   </div>
 </section>

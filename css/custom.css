@@ -172,7 +172,7 @@ label {
 /* Calendario Mapa  */
 #calendario-booking {
   position: relative;
-  padding: 3rem 0;
+  padding: 2.5rem 0 ;
   background: rgba(235,235,235,0);
   background: -moz-linear-gradient(top, rgba(235,235,235,0) 0%, rgba(243,234,211,0) 4%, rgba(254,233,182,0.15) 9%, rgba(248,222,170,0.3) 14%, rgba(248,222,170,1) 37%);
   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(235,235,235,0)), color-stop(4%, rgba(243,234,211,0)), color-stop(9%, rgba(254,233,182,0.15)), color-stop(14%, rgba(248,222,170,0.3)), color-stop(37%, rgba(248,222,170,1)));
@@ -212,18 +212,45 @@ label {
   display: none;
 }
 .calendario-plantas {
+  display: inline-block;
   height: auto;
   width: 100%;
   position: absolute;
-  bottom: 0rem;
+  bottom: -0;
+  /* bottom: -2.5rem; */
   left:0;
   z-index: 2;
   padding: 0;
+  overflow: hidden;
 }
-.calendario-plantas-cont-img {
+.calendario-planta {
   height: 100%;
+  width: 50%;
   padding: 0;
-   background-repeat: repeat-y;
+  display: table-cell;
+}
+.calendario-planta-fondo {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+}
+.plantas-escritorio {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+.plantas-movil {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+.calendario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /*  */
 .texto-home {
@@ -315,10 +342,22 @@ label {
   }
   #calendario-booking {
     padding: 1rem 0 5rem;
-    height: 750px;
+    height: auto;
   }
   .wc-bookings-availability-calendar-container.wc-bookings-availability-calendar-container-small.wc-bookings-availability-calendar-container-month-view {
     height: 23rem;
+  }
+  .wp-block-woocommerce-bookings-availability-calendar-block {
+    width: 100%;
+  }
+  .plantas-movil {
+    display: block;
+  }
+  .plantas-escritorio {
+    display: none;
+  }
+  .calendario-plantas {
+    bottom: -5rem;
   }
 }
 @media only screen and (max-width:479px) {
@@ -338,8 +377,8 @@ label {
   div#et-main-area .products li a h2 {
     font-size: 0.65rem;
   }
-  #calendario-booking {
-    height: 968px;
+  .calendario-plantas {
+    bottom: -2rem;
   }
 }
 /* Animation */
