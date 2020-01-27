@@ -49,7 +49,7 @@ const todosLugares = [
 const mappedElement = "#mapa_playa ul.products li";
 const searchForTag = "#mapa_playa ul.products li a h2";
 const parentContainer = "#mapa_playa";
-const parentHeight = '140vh';
+const parentHeight = '120vh';
 
 jQuery(document).ready(() => {
 

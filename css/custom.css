@@ -303,6 +303,13 @@ label {
 .et_overlay {
   border-radius: 5px !important;
 }
+/* palmeras */
+.flotante {
+  position: absolute !important;
+  z-index: 1;
+  height: 20% !important;
+  width: auto;
+}
 /*  */
 /* responsive */
 @media only screen and (max-width:980px) {
