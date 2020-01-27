@@ -49,12 +49,13 @@ const todosLugares = [
 const mappedElement = "#mapa_playa ul.products li";
 const searchForTag = "#mapa_playa ul.products li a h2";
 const parentContainer = "#mapa_playa";
-const parentHeight = '120vh';
+const parentHeight = '140vh';
 
 jQuery(document).ready(() => {
 
   img();
   lugar_disponible();
+  palmera_1();
   // movil
   // if (window.innerWith < 588) {
   jQuery(document).ajaxComplete((e) => {
@@ -124,8 +125,8 @@ function lugar_disponible() {
           existentes = extrae_disponibles_movil(disponiblesDia);
           compara_disponibles_movil(existentes,todosLugares);
 
-        }, 5000);
-        // confirma funcion por seguridad de tiempos de carga en el jax del calendario
+        }, 8000);
+        // confirma funcion por seguridad de tiempos de carga en el ajax del calendario
         // setTimeout(() => {
         //
         //   existentes = extrae_disponibles_movil(disponiblesDia);
@@ -166,7 +167,7 @@ function lugar_disponible() {
         resultado.push(textoOcupado);
         console.log("No Disponible!");
       } else {
-        console.log("Disponible!");
+        console.log("Disponibles!");
         resultado.push(lugar);
       }
 
@@ -269,4 +270,19 @@ const asigna_disponibilidad_movil = (disponibles) => {
     // console.log("No hay lugares disponibles");
   }
 
+}
+
+function palmera_1() {
+  let palmera = document.querySelector(".flotante-3");
+  palmera.animate([
+    { transform: 'rotate(0deg)' },
+    { transform: 'rotate(4deg)' },
+    { transform: 'rotate(3deg)' },
+    { transform: 'rotate(0deg)' }
+  ], {
+    duration: 10000,
+    iterations: Infinity
+  });
+  palmera.style.transform = "translate(254%, 137%)";
+  console.log('translated');
 }

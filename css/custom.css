@@ -6,6 +6,10 @@
   --color-hover: #1D02E1;
   --color-dark: #422918;
   --color-clear: #F2F2F2;
+  /* animacion palmeras*/
+  --palmera-1: translate(254%, 137%);
+  --palmera-2: translate(115%, 2%);
+  --palmera-3: translate(-7%, 194%);
 }
 h1,h2,h3,h4,h5,h6 {
   color: var(--color-dark)
@@ -216,8 +220,8 @@ label {
   height: auto;
   width: 100%;
   position: absolute;
-  bottom: -0;
-  /* bottom: -2.5rem; */
+  /* bottom: -0; */
+  bottom: -2.5rem;
   left:0;
   z-index: 2;
   padding: 0;
@@ -251,6 +255,10 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.wc-bookings-availability-calendar .wc-bookings-availability-selected-date {
+  background-color: lawngreen;
+  color: black;
 }
 /*  */
 .texto-home {
@@ -305,10 +313,34 @@ label {
 }
 /* palmeras */
 .flotante {
+  transition: 2s;
   position: absolute !important;
   z-index: 1;
-  height: 20% !important;
   width: auto;
+}
+.flotante-1 {
+  height: 20% !important;
+  transform: var(--palmera-1);
+  -webkit-transform: var(--palmera-1);
+  -moz-transform: var(--palmera-1);
+  -ms-transform: var(--palmera-1);
+  -o-transform: var(--palmera-1);
+}
+.flotante-2 {
+  height: 20% !important;
+  transform: var(--palmera-2);
+  webkit-transform: var(--palmera-2);
+  -moz-transform: var(--palmera-2);
+  -ms-transform: var(--palmera-2);
+  -o-transform: var(--palmera-2);
+}
+.flotante-3 {
+  height: 17% !important;
+  transform: var(--palmera-3);
+  -webkit-transform: var(--palmera-3);
+  -moz-transform: var(--palmera-3);
+  -ms-transform: var(--palmera-3);
+  -o-transform: var(--palmera-3);
 }
 /*  */
 /* responsive */
@@ -410,5 +442,33 @@ label {
   }
   100% {
     transform: translate3d(0px,25px,0px);
+  }
+}
+@-webkit-keyframes palmera {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    -o-transform: rotate(20deg);
+    -webkit-transform: var(--palmera-1);
+    -moz-transform: var(--palmera-1);
+    -ms-transform: var(--palmera-1);
+    -o-transform: var(--palmera-1);
+  }
+}
+@keyframes palmera {
+  0% {
+    transform: rotate(0deg);
+    transform: var(--palmera-1);
+  }
+  100% {
+    transform: rotate(20deg);
+    transform: var(--palmera-1);
   }
 }

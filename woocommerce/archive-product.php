@@ -103,7 +103,7 @@ get_header('shop');
 <!-- palmeras -->
 <img class="flotante flotante-1" src="<?php echo get_stylesheet_directory_uri(); ?>/img/palmera.1.png" alt="YayaBeach Club Mahahual">
 <img class="flotante flotante-2" src="<?php echo get_stylesheet_directory_uri(); ?>/img/palmera.2.png" alt="YayaBeach Club Mahahual">
-<img class="flotante flotante-3" src="<?php echo get_stylesheet_directory_uri(); ?>/img/palmera.grupo.2.png" alt="YayaBeach Club Mahahual">
+<img class="flotante flotante-3" src="<?php echo get_stylesheet_directory_uri(); ?>/img/palmera.grupo.1.png" alt="YayaBeach Club Mahahual">
 
 <!--  -->
 
