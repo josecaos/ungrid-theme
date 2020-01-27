@@ -314,6 +314,7 @@ label {
 /* palmeras */
 .flotante {
   transition: 2s;
+  transform-origin: center;
   position: absolute !important;
   z-index: 1;
   width: auto;

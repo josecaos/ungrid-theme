@@ -55,7 +55,7 @@ jQuery(document).ready(() => {
 
   img();
   lugar_disponible();
-  palmera_1();
+  palmeras();
   // movil
   // if (window.innerWith < 588) {
   jQuery(document).ajaxComplete((e) => {
@@ -272,17 +272,33 @@ const asigna_disponibilidad_movil = (disponibles) => {
 
 }
 
-function palmera_1() {
-  let palmera = document.querySelector(".flotante-3");
-  palmera.animate([
-    { transform: 'rotate(0deg)' },
-    { transform: 'rotate(4deg)' },
-    { transform: 'rotate(3deg)' },
-    { transform: 'rotate(0deg)' }
+function palmeras() {
+  let palmera1 = document.querySelector(".flotante-1");
+  let palmera2 = document.querySelector(".flotante-2");
+  let palmera3 = document.querySelector(".flotante-3");
+  palmera1.animate([
+    { transform: 'rotate(0deg) translate(254%, 137%)' },
+    { transform: 'rotate(1deg) translate(254%, 137%)' },
+    { transform: 'rotate(0deg) translate(254%, 137%)' },
+
   ], {
-    duration: 10000,
+    duration: 15000,
     iterations: Infinity
   });
-  palmera.style.transform = "translate(254%, 137%)";
-  console.log('translated');
+  palmera2.animate([
+    { transform: 'rotate(0deg) translate(115%, 2%)' },
+    { transform: 'rotate(1deg) translate(115%, 2%)' },
+    { transform: 'rotate(0deg) translate(115%, 2%)' }
+  ], {
+    duration: 15000,
+    iterations: Infinity
+  });
+  palmera3.animate([
+    { transform: 'rotate(0deg) translate(-7%, 194%)' },
+    { transform: 'rotate(1deg) translate(-7%, 194%)' },
+    { transform: 'rotate(0deg) translate(-7%, 194%)' }
+  ], {
+    duration: 15000,
+    iterations: Infinity
+  });
 }
