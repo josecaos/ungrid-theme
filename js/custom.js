@@ -277,26 +277,26 @@ function palmeras() {
   let palmera2 = document.querySelector(".flotante-2");
   let palmera3 = document.querySelector(".flotante-3");
   palmera1.animate([
-    { transform: 'rotate(0deg) translate(254%, 137%)' },
-    { transform: 'rotate(1deg) translate(254%, 137%)' },
-    { transform: 'rotate(0deg) translate(254%, 137%)' },
+    { transform: 'rotate(0deg) translateX(546%)' },
+    { transform: 'rotate(1deg) translateX(546%)' },
+    { transform: 'rotate(0deg) translateX(546%)' },
 
   ], {
     duration: 15000,
     iterations: Infinity
   });
   palmera2.animate([
-    { transform: 'rotate(0deg) translate(115%, 2%)' },
-    { transform: 'rotate(1deg) translate(115%, 2%)' },
-    { transform: 'rotate(0deg) translate(115%, 2%)' }
+    { transform: 'rotate(0deg) translateX(285%)' },
+    { transform: 'rotate(1deg) translateX(285%)' },
+    { transform: 'rotate(0deg) translateX(285%)' }
   ], {
     duration: 15000,
     iterations: Infinity
   });
   palmera3.animate([
-    { transform: 'rotate(0deg) translate(-7%, 194%)' },
-    { transform: 'rotate(1deg) translate(-7%, 194%)' },
-    { transform: 'rotate(0deg) translate(-7%, 194%)' }
+    { transform: 'rotate(0deg) translateX(4%)' },
+    { transform: 'rotate(1deg) translateX(4%)' },
+    { transform: 'rotate(0deg) translateX(4%)' }
   ], {
     duration: 15000,
     iterations: Infinity
