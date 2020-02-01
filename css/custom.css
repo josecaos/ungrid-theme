@@ -207,6 +207,8 @@ label {
   padding: 0 !important;
   border: 1px solid var(--color-yaya) !important;
   color: var(--color-dark);
+  background-color: lightblue;
+
 }
 .wc-bookings-availability-cal-date:hover {
   background-color: rgba(0,0,0,0.25);
@@ -313,12 +315,12 @@ label {
 }
 /* palmeras */
 .flotante {
-  transition: 2s;
+  transition: 3s;
   transform-origin: center;
   position: absolute !important;
   z-index: 1;
   width: auto;
-  opacity: 1 !important;
+  opacity: 0;
 }
 .flotante img {
   height: 100%;
@@ -332,12 +334,12 @@ label {
   -moz-transform: var(--palmera-1);
   -ms-transform: var(--palmera-1);
   -o-transform: var(--palmera-1);
-  bottom: 57%;
+  bottom: 53%;
 }
 .flotante-2 {
   width: 14% !important;
   transform: var(--palmera-2);
-  webkit-transform: var(--palmera-2);
+  -webkit-transform: var(--palmera-2);
   -moz-transform: var(--palmera-2);
   -ms-transform: var(--palmera-2);
   -o-transform: var(--palmera-2);
@@ -350,7 +352,7 @@ label {
   -moz-transform: var(--palmera-3);
   -ms-transform: var(--palmera-3);
   -o-transform: var(--palmera-3);
-  bottom: 52%;
+  bottom: 47%;
 }
 /*  */
 /* responsive */

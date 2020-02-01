@@ -56,10 +56,17 @@ jQuery(document).ready(() => {
   img();
   lugar_disponible();
   palmeras();
+  // DEBUG:
+  setTimeout(()=>{
+    console.log("AJAX: ", window.XMLHttpRequest.prototype.send);
+  },3000)
   // movil
   // if (window.innerWith < 588) {
-  jQuery(document).ajaxComplete((e) => {
-    console.log("AJAX");
+  jQuery(document).ajaxStart(function(){
+    console.log("AJAX START!!!!");
+  });
+  jQuery('.calendario').ajaxComplete((e) => {
+    console.log("AJAX COMPLETE!!!!");
     // lugar_disponible();
   });
   // } else {
@@ -105,11 +112,19 @@ function lugar_disponible() {
 
     let numeroDia = item.textContent;
 
-    item.addEventListener('click', () => {
+    item.addEventListener('click', (e) => {
       // si la ventana es menor a 589 busca en lista movil
       let disponiblesDia, existentes;
       let ventana = window.innerWidth;
 
+      //Ilumina el dia clickado + borra fondo  de los demas dias
+      let dias = document.querySelectorAll('.wc-bookings-availability-cal-date');
+      dias.forEach((item)=>{
+        item.style.backgroundColor = 'lightblue';
+        console.log("Ey", item);
+      })
+      item.style.backgroundColor = 'lime';
+      //
       if (ventana > 588) {// escritorio
         disponiblesDia = item.nextElementSibling
         existentes = extrae_disponibles(disponiblesDia.childNodes);
@@ -278,27 +293,48 @@ function palmeras() {
   let palmera3 = document.querySelector(".flotante-3");
   palmera1.animate([
     { transform: 'rotate(0deg) translateX(546%)' },
+    { transform: 'rotate(0.5deg) translateX(546%)' },
+    { transform: 'rotate(0deg) translateX(546%)' },
+    { transform: 'rotate(0.5deg) translateX(546%)' },
+    { transform: 'rotate(0.75deg) translateX(546%)' },
     { transform: 'rotate(1deg) translateX(546%)' },
     { transform: 'rotate(0deg) translateX(546%)' },
-
   ], {
-    duration: 15000,
+    duration: 13000,
     iterations: Infinity
   });
   palmera2.animate([
     { transform: 'rotate(0deg) translateX(285%)' },
+    { transform: 'rotate(0.5deg) translateX(285%)' },
+    { transform: 'rotate(0deg) translateX(285%)' },
+    { transform: 'rotate(0.5deg) translateX(285%)' },
+    { transform: 'rotate(0.75deg) translateX(285%)' },
     { transform: 'rotate(1deg) translateX(285%)' },
-    { transform: 'rotate(0deg) translateX(285%)' }
+    { transform: 'rotate(0deg) translateX(285%)' },
   ], {
-    duration: 15000,
+    duration: 14000,
     iterations: Infinity
   });
   palmera3.animate([
     { transform: 'rotate(0deg) translateX(4%)' },
+    { transform: 'rotate(0.5deg) translateX(4%)' },
+    { transform: 'rotate(0deg) translateX(4%)' },
+    { transform: 'rotate(0.5deg) translateX(4%)' },
+    { transform: 'rotate(0.75deg) translateX(4%)' },
     { transform: 'rotate(1deg) translateX(4%)' },
-    { transform: 'rotate(0deg) translateX(4%)' }
+    { transform: 'rotate(0deg) translateX(4%)' },
   ], {
     duration: 15000,
     iterations: Infinity
   });
+
+  // Inicio palmeras
+  let flotante = document.querySelectorAll('.flotante');
+  setTimeout(() => {
+
+    flotante.forEach((item) => {
+      item.style.opacity = 1;
+    });
+
+  },2000)
 }
