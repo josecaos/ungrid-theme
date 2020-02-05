@@ -33,7 +33,7 @@ get_header('shop');
           <p class="subtitle col-12 text-center">Or go straight and choose your combos then we will give you the best spot available at your arrival.</p>
 
           <div class="best-option-available col-12">
-            <a href="https://pitayabeach.com/shop" target="_blank" type="button" name="best-option-available">
+            <a href="<?php echo get_page_link(23095); ?>" target="_blank" type="button" name="best-option-available">
               Give Me the best spot available
             </a>
           </div>

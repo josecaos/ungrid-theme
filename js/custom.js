@@ -56,10 +56,7 @@ jQuery(document).ready(() => {
   img();
   lugar_disponible();
   palmeras();
-  // DEBUG:
-  setTimeout(()=>{
-    console.log("AJAX: ", window.XMLHttpRequest.prototype.send);
-  },3000)
+
   // movil
   // if (window.innerWith < 588) {
   jQuery(document).ajaxStart(function(){
@@ -121,7 +118,6 @@ function lugar_disponible() {
       let dias = document.querySelectorAll('.wc-bookings-availability-cal-date');
       dias.forEach((item)=>{
         item.style.backgroundColor = 'lightblue';
-        console.log("Ey", item);
       })
       item.style.backgroundColor = 'lime';
       //
