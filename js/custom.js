@@ -117,9 +117,9 @@ function lugar_disponible() {
       //Ilumina el dia clickado + borra fondo  de los demas dias
       let dias = document.querySelectorAll('.wc-bookings-availability-cal-date');
       dias.forEach((item)=>{
-        item.style.backgroundColor = 'lightblue';
+        item.style.backgroundColor = 'lightgray';
       })
-      item.style.backgroundColor = 'lime';
+      item.style.backgroundColor = '#008EA9';
       //
       if (ventana > 588) {// escritorio
         disponiblesDia = item.nextElementSibling

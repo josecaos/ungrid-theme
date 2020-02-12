@@ -135,3 +135,5 @@ function attach_terms_conditions_pdf_to_email ( $attachments , $id, $object ) {
   $attachments[] = $your_pdf_path;
   return $attachments;
 }
+// add to cart
+add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 20 );

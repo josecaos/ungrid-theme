@@ -294,7 +294,8 @@ label {
 }
 
 /* mapa */
-.lugar-mapa {
+.ungrid .add_to_cart_button {
+  display: none !important;
 }
 .sold {
   position: absolute;
@@ -365,18 +366,55 @@ label {
 /* Combos */
 .combos {
   opacity: 1 !important;
+  margin-bottom: 2rem;
 }
 .combos .et_shop_image {
   border-radius: 300px;
   overflow: hidden;
 }
+.combos .woocommerce-loop-product__title {
+  font-size: 1.25rem !important;
+}
+.combos .price {
+  font-size: 1rem !important;
+  color: gray;
+}
+.combos-list ul.products {
+  margin: 0;
+
+}
 .combos-copy {
   padding: 2rem;
   padding-top: 7rem;
+  padding-bottom: 4rem;
   text-align: center;
 }
 .combos img {
   width: 100%;
+}
+.quantity {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.75rem;
+}
+.quantity input {
+  width: 3rem;
+  border: none;
+  background-color: lightgray;
+  padding: 0.25rem;
+}
+.combos-list .add_to_cart_button {
+  transition: 0.25s;
+  margin: 0 auto;
+  display: flex;
+  padding: 0.5rem 2rem;
+  border: none;
+  background-color: var(--color-yaya);
+  color: antiquewhite;
+  cursor: pointer;
+}
+.combos-list .add_to_cart_button:hover {
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
 }
 /*  */
 /* responsive */

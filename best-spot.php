@@ -6,7 +6,7 @@ Template Name: Yaya's Best Spot Available
 get_header('shop');
 ?>
 
-<section id="" class="combos-list container-fluid">
+<section id="mapa_playa" class="combos-list container-fluid">
 
   <div class="fondo-playa col-12 imgLiquid imgLiquidFill">
     <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/YAYA_arena.png" alt="YayaBeach Club Mahahual">
