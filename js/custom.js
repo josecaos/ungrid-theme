@@ -87,6 +87,13 @@ jQuery(document).ready(() => {
         prods[i].firstChild.nodeValue = ""
     }
 
+    //arregla la altura del contenedor en movil
+    console.log("Ya lo puse: ", window.innerWidth);
+    if (window.innerWidth <= 980) {
+      setTimeout(() => {
+        document.querySelector("#page-container").style.paddingTop = "0";
+      },2000);
+    }
     console.log("Scripts OK.")
 
 })
@@ -112,7 +119,7 @@ function lugar_disponible() {
             // DEBUG:
             fecha(item);
 
-            // 
+            //
             // si la ventana es menor a 589 busca en lista movil
             let disponiblesDia, existentes;
             let ventana = window.innerWidth;
