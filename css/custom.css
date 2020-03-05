@@ -5,7 +5,8 @@
 
 :root {
   --color-yaya: #2EA3F2;
-  --color-hover: #D93831;
+  --color-hover: #CDCDCD;
+  /* --color-hover: #D93831; */
   --color-dark: #422918;
   --color-clear: #F2F2F2;
   /* animacion palmeras*/
@@ -183,6 +184,7 @@ td .ui-state-default {
   display: block;
   padding: 8px 16px;
   height: 35px;
+  background-color: var(--color-hover);
 }
 
 #et-top-navigation .et-cart-info {
@@ -240,7 +242,7 @@ td .ui-state-default {
 
 #calendario-booking {
   position: relative;
-  padding: 2.5rem 0;
+  padding: 1rem 0 2.5rem;
   background: rgba(235, 235, 235, 0);
   background: -moz-linear-gradient(top, rgba(235, 235, 235, 0) 0%, rgba(243, 234, 211, 0) 4%, rgba(254, 233, 182, 0.15) 9%, rgba(248, 222, 170, 0.3) 14%, rgba(248, 222, 170, 1) 37%);
   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(235, 235, 235, 0)), color-stop(4%, rgba(243, 234, 211, 0)), color-stop(9%, rgba(254, 233, 182, 0.15)), color-stop(14%, rgba(248, 222, 170, 0.3)), color-stop(37%, rgba(248, 222, 170, 1)));
@@ -484,8 +486,6 @@ td .ui-state-default {
 
 .combos-copy {
   padding: 2rem;
-  padding-top: 7rem;
-  padding-bottom: 4rem;
   text-align: center;
 }
 
