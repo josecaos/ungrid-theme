@@ -325,15 +325,15 @@ function palmeras() {
   let palmera2 = document.querySelector(".flotante-2");
   let palmera3 = document.querySelector(".flotante-3");
 
-  if (!!palmera1 || !!palmera2 || palmera3) {
+  if (!!palmera1 || !!palmera2 || !!palmera3) {
 
     palmera1.animate([
       { transform: 'rotate(0deg) translateX(546%)' },
-      { transform: 'rotate(0.5deg) translateX(546%)' },
+      { transform: 'rotate(0.25deg) translateX(546%)' },
       { transform: 'rotate(0deg) translateX(546%)' },
+      { transform: 'rotate(0.25deg) translateX(546%)' },
       { transform: 'rotate(0.5deg) translateX(546%)' },
       { transform: 'rotate(0.75deg) translateX(546%)' },
-      { transform: 'rotate(1deg) translateX(546%)' },
       { transform: 'rotate(0deg) translateX(546%)' },
     ], {
       duration: 13000,
@@ -341,26 +341,26 @@ function palmeras() {
     });
     palmera2.animate([
       { transform: 'rotate(0deg) translateX(285%)' },
-      { transform: 'rotate(0.5deg) translateX(285%)' },
+      { transform: 'rotate(0.25deg) translateX(285%)' },
       { transform: 'rotate(0deg) translateX(285%)' },
+      { transform: 'rotate(0.25deg) translateX(285%)' },
       { transform: 'rotate(0.5deg) translateX(285%)' },
       { transform: 'rotate(0.75deg) translateX(285%)' },
-      { transform: 'rotate(1deg) translateX(285%)' },
       { transform: 'rotate(0deg) translateX(285%)' },
     ], {
       duration: 14000,
       iterations: Infinity
     });
     palmera3.animate([
-      { transform: 'rotate(0deg) translateX(4%)' },
-      { transform: 'rotate(0.5deg) translateX(4%)' },
-      { transform: 'rotate(0deg) translateX(4%)' },
-      { transform: 'rotate(0.5deg) translateX(4%)' },
-      { transform: 'rotate(0.75deg) translateX(4%)' },
       { transform: 'rotate(1deg) translateX(4%)' },
-      { transform: 'rotate(0deg) translateX(4%)' },
+      { transform: 'rotate(1.5deg) translateX(4%)' },
+      { transform: 'rotate(1deg) translateX(4%)' },
+      { transform: 'rotate(1.5deg) translateX(4%)' },
+      { transform: 'rotate(1.75deg) translateX(4%)' },
+      { transform: 'rotate(2deg) translateX(4%)' },
+      { transform: 'rotate(1deg) translateX(4%)' },
     ], {
-      duration: 15000,
+      duration: 10000,
       iterations: Infinity
     });
   }

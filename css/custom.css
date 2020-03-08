@@ -191,7 +191,9 @@ td .ui-state-default {
   margin-top: 0px;
   color: var(--color-yaya);
 }
-
+.et-cart-info {
+  display: none;
+}
 
 /* checkout */
 
@@ -445,17 +447,17 @@ td .ui-state-default {
   -moz-transform: var(--palmera-2);
   -ms-transform: var(--palmera-2);
   -o-transform: var(--palmera-2);
-  bottom: 82%;
+  bottom: 79.5%;
 }
 
 .flotante-3 {
-  width: 12% !important;
+  width: 11% !important;
   transform: var(--palmera-3);
   -webkit-transform: var(--palmera-3);
   -moz-transform: var(--palmera-3);
   -ms-transform: var(--palmera-3);
   -o-transform: var(--palmera-3);
-  bottom: 47%;
+  bottom: 48%;
 }
 
 
